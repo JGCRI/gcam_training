@@ -1,0 +1,69 @@
+.container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse, .container-fluid>.navbar-collapse, .navbar-default, .navbar-fixed-top, .navbar-fixed-top, .navbar{
+ display: none !important;
+}
+
+h1.title {
+    font-size: 100px;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+h2 {
+    font-size: 40px;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+body {
+  background-image: url('images/bg.jpg');
+}
+
+ul.nav {
+    font-size: 25px;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    text-align: center;
+}
+ul.nav > li {
+  display: inline-block;
+  padding: 10px 20px;
+}
+ul.nav > li:hover {
+  background-color: transparent;
+}
+ul.nav > li > a {
+  color: white;
+  text-decoration: none;
+}
+ul.nav > li > a:hover {
+  background-color: yellow;
+}
+
+img {
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: 60px;
+}
+
+
