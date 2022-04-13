@@ -427,13 +427,13 @@ div.tocify {
 <ol style="list-style-type: decimal">
 <li>Create a folder in the input directory (<code>./gcam-core/input</code>) of gcam and name it something appropriate e.g.<code>addons</code> so you now have an empty folder <code>./gcam-core/input/addons</code>.</li>
 <li>Download the example xml file: <a href="https://github.com/JGCRI/gcam_training/blob/main/examples/example_adjust_electricity_constraint_subsidy.xml">example_adjust_electricity_constraint.xml</a> and save in <code>./gcam-core/input/addons</code></li>
-<li>In the file change the <code>region</code> from <code>Thailand</code> to whatever region you what to adjust the electricity mix for.</li>
-<li>Add a <code>&lt;policy-portfolio-standard name</code> for each <code>subsector</code> from <code>.\input\gcamdata\inst\extdata\energy\A23.globaltech_eff.csv</code> (includes: col gas, refined liquids, biomass, nuclear, wind, solar, geothermal, rooftop_pv, wind)</li>
+<li>In the file change the <code>region</code> and <code>market</code> from <code>Thailand</code> to whatever region you want to adjust the electricity mix for.</li>
+<li>Add a <code>&lt;policy-portfolio-standard name</code> for each <code>subsector</code> from <code>.\input\gcamdata\inst\extdata\energy\A23.globaltech_eff.csv</code> (includes: coal gas, refined liquids, biomass, nuclear, wind, solar, geothermal, rooftop_pv, wind)</li>
 <li>Adjust the <code>min-price</code> and the <code>constraint</code> for each year to the values desired.</li>
 <li>After declaring all your constraints for each subsector go towards the end of the file and assign the corresponding policy to each <code>subsector</code> and <code>studb-technology</code> (full list here: <code>.\input\gcamdata\inst\extdata\energy\A23.globaltech_eff.csv</code>)</li>
 <li>Save the xml and then point to it in your configuration file by adding the line: <code>&lt;Value name = "adjust_elec_mix_subsidy"&gt;../gcam-core/input/addons/example_adjust_electricity_constraint.xml&lt;/Value&gt;</code>.</li>
 </ol>
-<p><strong>Note: To use a tax policy repeat the steps but replace <code>subsidy</code> in the <code>&lt;policyType&gt;</code> argument in <code>./gcam-core/input/addons/example_adjust_electricity_constraint.xml</code> with <code>tax</code>.</strong></p>
+<p><strong>Note: To use a <code>tax</code> policy repeat the steps but replace <code>subsidy</code> in the <code>&lt;policyType&gt;</code> argument in <code>./gcam-core/input/addons/example_adjust_electricity_constraint.xml</code> with <code>tax</code>.</strong></p>
 </div>
 </div>
 <div id="adjusting-transport-mix" class="section level2">
