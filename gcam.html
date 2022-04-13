@@ -362,32 +362,152 @@ div.tocify {
 <p><img src="images/logo_gcims_white.png" style="float:right;height:30px; padding-top:10px;"> <img src="images/logo_pnnl_white.png" style="float:right;height:40px;"></p>
 </div>
 <!-------------------------->
-<div id="videos" class="section level1">
-<h1>Videos</h1>
-<!-------------------------->
-<p align="center">
-<img src="images/divider.png">
-</p>
-<div id="gcam-5.4-overview" class="section level2">
-<h2>GCAM 5.4 overview</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/13tBgM_JWXc?rel=0" frameborder="0" allowfullscreen>
-</iframe>
-<p><br></p>
-<!-------------------------->
-</div>
-</div>
-<div id="presentations" class="section level1">
-<h1>Presentations</h1>
+<div id="gcam-faqs-discussions" class="section level1">
+<h1>GCAM FAQS &amp; Discussions</h1>
 <!-------------------------->
 <p align="center">
 <img src="images/divider.png">
 </p>
 <ul>
-<li><a href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam_training_session1.pptx">gcam_training_session1.pptx</a></li>
-<li><a href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam_training_session2.pptx">gcam_training_session2.pptx</a></li>
-<li><a href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam_training_session3.pptx">gcam_training_session3.pptx</a></li>
-<li><a href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam_training_session4.pptx">gcam_training_session4.pptx</a></li>
+<li>For frequently asked questions, discussions and issues please use the official GCAM discussions page <a href="https://github.com/JGCRI/gcam-core/discussions" class="uri">https://github.com/JGCRI/gcam-core/discussions</a>. You can add new topics or review and rank existing ones as well as offer your own insights or solutions.</li>
+<li>Official GCAM documentation and a quickstart guide can be found here: <a href="http://jgcri.github.io/gcam-doc/index.html" class="uri">http://jgcri.github.io/gcam-doc/index.html</a></li>
 </ul>
+<p><br></p>
+<!-------------------------->
+</div>
+<div id="gcam-overview" class="section level1">
+<h1>GCAM Overview</h1>
+<!-------------------------->
+<p align="center">
+<img src="images/divider.png">
+</p>
+<div id="general-overview" class="section level2">
+<h2>General Overview</h2>
+<ul>
+<li><a href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam_overview.pptx">gcam_overview.pptx</a></li>
+</ul>
+</div>
+<div id="gcam-5.4" class="section level2">
+<h2>GCAM 5.4</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/13tBgM_JWXc?rel=0" frameborder="0" allowfullscreen>
+</iframe>
+<ul>
+<li><a href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam54_walkthrough.pptx">gcam54_walkthrough.pptx</a></li>
+</ul>
+<p><br></p>
+<!-------------------------->
+</div>
+</div>
+<div id="gcam-scenario-adjustments" class="section level1">
+<h1>GCAM Scenario Adjustments</h1>
+<!-------------------------->
+<p align="center">
+<img src="images/divider.png">
+</p>
+<div id="adjusing-population-gdp" class="section level2">
+<h2>Adjusing population &amp; GDP</h2>
+</div>
+<div id="adjusting-electricity-mix" class="section level2">
+<h2>Adjusting electricity mix</h2>
+<div id="using-shareweights" class="section level3">
+<h3>Using shareweights</h3>
+</div>
+<div id="using-the-floorceilingconstraint-approach" class="section level3">
+<h3>Using the Floor/Ceiling/Constraint approach</h3>
+<ul>
+<li><strong><a href="https://github.com/JGCRI/gcam_training/blob/main/examples/example_adjust_electricity_constraint_subsidy.xml">example_adjust_electricity_constraint.xml</a></strong></li>
+</ul>
+<p>The electricity generation mix can also be adjusted by setting floors or ceilings using a subsidy or tax policy. Constraints are set for each year within the subsidy or tax policy, and the policy must be passed to each individual <code>subsector</code> and <code>stub-technology</code> that you want to adjust. A list of the <code>subsector</code> and <code>stub-technology</code> available can be found in <code>.\input\gcamdata\inst\extdata\energy\A23.globaltech_eff.csv</code>.</p>
+<ul>
+<li>Subsidy Policy: With a subsidy policy, a constraint can be set that acts as a generation floor for a given technology or set of technologies; i.e. electricity generation for that technology or total generation for the set of technologies will be at least as high as the constraint.</li>
+<li>Tax Policy: Setting a constraint with a tax policy will have the opposite effect, ensuring that total generation for a technology or set of technologies does not exceed the constraint.</li>
+<li><code>min-price</code>: Additionally, the <code>min-price</code> tag in the example xml below represents the price below which GCAM will consider a market solved (0 by default). It is possible to force generation to exactly match the constraint values rather than setting floors or ceilings by setting min-price to a large negative value in each year (e.g., <min-price year=”2020”>-10000</min-price>)</li>
+</ul>
+<p>Steps: 1. Create a folder in the input directory (<code>./gcam-core/input</code>) of gcam and name it something appropriate e.g.<code>addons</code> so you now have an empty folder <code>./gcam-core/input/addons</code>. 2. Download the example xml file: <a href="https://github.com/JGCRI/gcam_training/blob/main/examples/example_adjust_electricity_constraint_subsidy.xml">example_adjust_electricity_constraint.xml</a> and save in <code>./gcam-core/input/addons</code> 3. In the file change the <code>region</code> from <code>Thailand</code> to whatever region you what to adjust the electricity mix for. 4. Add a <code>&lt;policy-portfolio-standard name</code> for each <code>subsector</code> from <code>.\input\gcamdata\inst\extdata\energy\A23.globaltech_eff.csv</code> (includes: col gas, refined liquids, biomass, nuclear, wind, solar, geothermal, rooftop_pv, wind) 5. Adjust the <code>min-price</code> and the <code>constraint</code> for each year to the values desired. 6. After declaring all your constraints for each subsector go towards the end of the file and assign the corresponding policy to each <code>subsector</code> and <code>studb-technology</code> (full list here: <code>.\input\gcamdata\inst\extdata\energy\A23.globaltech_eff.csv</code>) 6. Save the xml and then point to it in your configuration file by adding the line: <code>&lt;Value name = "adjust_elec_mix_subsidy"&gt;../gcam-core/input/addons/example_adjust_electricity_constraint.xml&lt;/Value&gt;</code>.</p>
+<p><strong>Note: To use a tax policy repeat the steps but replace <code>subsidy</code> in the <code>&lt;policyType&gt;</code> argument in <code>./gcam-core/input/addons/example_adjust_electricity_constraint.xml</code> with <code>tax</code>.</strong></p>
+</div>
+</div>
+<div id="adjusting-transport-mix" class="section level2">
+<h2>Adjusting transport mix</h2>
+</div>
+<div id="adjusting-buildings" class="section level2">
+<h2>Adjusting buildings</h2>
+</div>
+<div id="emission-constraints-pathways" class="section level2">
+<h2>Emission constraints &amp; pathways</h2>
+<p><br></p>
+<!-------------------------->
+</div>
+</div>
+<div id="batch-runs" class="section level1">
+<h1>Batch runs</h1>
+<!-------------------------->
+<p align="center">
+<img src="images/divider.png">
+</p>
+<p><br></p>
+<!-------------------------->
+</div>
+<div id="parallel-runs" class="section level1">
+<h1>Parallel runs</h1>
+<!-------------------------->
+<p align="center">
+<img src="images/divider.png">
+</p>
+<p><br></p>
+<!-------------------------->
+</div>
+<div id="gcamdata" class="section level1">
+<h1>gcamdata</h1>
+<!-------------------------->
+<p align="center">
+<img src="images/divider.png">
+</p>
+<div id="required-packages-and-versions" class="section level2">
+<h2>Required packages and versions</h2>
+<p>renv.lock file and instrcutions on how to run to get the correct versions.</p>
+<p><br></p>
+<!-------------------------->
+</div>
+</div>
+<div id="xmls" class="section level1">
+<h1>XMLs</h1>
+<!-------------------------->
+<p align="center">
+<img src="images/divider.png">
+</p>
+<div id="create-xml-from-csv" class="section level2">
+<h2>Create XML from csv</h2>
+<p><br></p>
+<!-------------------------->
+</div>
+</div>
+<div id="extracting-gcam-data" class="section level1">
+<h1>Extracting GCAM data</h1>
+<!-------------------------->
+<p align="center">
+<img src="images/divider.png">
+</p>
+<div id="rgcam" class="section level2">
+<h2>rgcam</h2>
+</div>
+<div id="modelinterface" class="section level2">
+<h2>modelInterface</h2>
+</div>
+<div id="gcamextractor" class="section level2">
+<h2>gcamextractor</h2>
+</div>
+<div id="argus" class="section level2">
+<h2>Argus</h2>
+<!-------------------------->
+</div>
+</div>
+<div id="essential-git-commands" class="section level1">
+<h1>Essential Git Commands</h1>
+<!-------------------------->
+<p align="center">
+<img src="images/divider.png">
+</p>
 </div>
 
 
