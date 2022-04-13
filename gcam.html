@@ -412,8 +412,8 @@ div.tocify {
 <div id="using-shareweights" class="section level3">
 <h3>Using shareweights</h3>
 </div>
-<div id="using-the-floorceilingconstraint-approach" class="section level3">
-<h3>Using the Floor/Ceiling/Constraint approach</h3>
+<div id="using-constraints" class="section level3">
+<h3>Using constraints</h3>
 <ul>
 <li><strong><a href="https://github.com/JGCRI/gcam_training/blob/main/examples/example_adjust_electricity_constraint_subsidy.xml">example_adjust_electricity_constraint.xml</a></strong></li>
 </ul>
@@ -423,7 +423,16 @@ div.tocify {
 <li>Tax Policy: Setting a constraint with a tax policy will have the opposite effect, ensuring that total generation for a technology or set of technologies does not exceed the constraint.</li>
 <li><code>min-price</code>: Additionally, the <code>min-price</code> tag in the example xml below represents the price below which GCAM will consider a market solved (0 by default). It is possible to force generation to exactly match the constraint values rather than setting floors or ceilings by setting min-price to a large negative value in each year (e.g., <min-price year=”2020”>-10000</min-price>)</li>
 </ul>
-<p>Steps: 1. Create a folder in the input directory (<code>./gcam-core/input</code>) of gcam and name it something appropriate e.g.<code>addons</code> so you now have an empty folder <code>./gcam-core/input/addons</code>. 2. Download the example xml file: <a href="https://github.com/JGCRI/gcam_training/blob/main/examples/example_adjust_electricity_constraint_subsidy.xml">example_adjust_electricity_constraint.xml</a> and save in <code>./gcam-core/input/addons</code> 3. In the file change the <code>region</code> from <code>Thailand</code> to whatever region you what to adjust the electricity mix for. 4. Add a <code>&lt;policy-portfolio-standard name</code> for each <code>subsector</code> from <code>.\input\gcamdata\inst\extdata\energy\A23.globaltech_eff.csv</code> (includes: col gas, refined liquids, biomass, nuclear, wind, solar, geothermal, rooftop_pv, wind) 5. Adjust the <code>min-price</code> and the <code>constraint</code> for each year to the values desired. 6. After declaring all your constraints for each subsector go towards the end of the file and assign the corresponding policy to each <code>subsector</code> and <code>studb-technology</code> (full list here: <code>.\input\gcamdata\inst\extdata\energy\A23.globaltech_eff.csv</code>) 6. Save the xml and then point to it in your configuration file by adding the line: <code>&lt;Value name = "adjust_elec_mix_subsidy"&gt;../gcam-core/input/addons/example_adjust_electricity_constraint.xml&lt;/Value&gt;</code>.</p>
+<p>Steps:</p>
+<ol style="list-style-type: decimal">
+<li>Create a folder in the input directory (<code>./gcam-core/input</code>) of gcam and name it something appropriate e.g.<code>addons</code> so you now have an empty folder <code>./gcam-core/input/addons</code>.</li>
+<li>Download the example xml file: <a href="https://github.com/JGCRI/gcam_training/blob/main/examples/example_adjust_electricity_constraint_subsidy.xml">example_adjust_electricity_constraint.xml</a> and save in <code>./gcam-core/input/addons</code></li>
+<li>In the file change the <code>region</code> from <code>Thailand</code> to whatever region you what to adjust the electricity mix for.</li>
+<li>Add a <code>&lt;policy-portfolio-standard name</code> for each <code>subsector</code> from <code>.\input\gcamdata\inst\extdata\energy\A23.globaltech_eff.csv</code> (includes: col gas, refined liquids, biomass, nuclear, wind, solar, geothermal, rooftop_pv, wind)</li>
+<li>Adjust the <code>min-price</code> and the <code>constraint</code> for each year to the values desired.</li>
+<li>After declaring all your constraints for each subsector go towards the end of the file and assign the corresponding policy to each <code>subsector</code> and <code>studb-technology</code> (full list here: <code>.\input\gcamdata\inst\extdata\energy\A23.globaltech_eff.csv</code>)</li>
+<li>Save the xml and then point to it in your configuration file by adding the line: <code>&lt;Value name = "adjust_elec_mix_subsidy"&gt;../gcam-core/input/addons/example_adjust_electricity_constraint.xml&lt;/Value&gt;</code>.</li>
+</ol>
 <p><strong>Note: To use a tax policy repeat the steps but replace <code>subsidy</code> in the <code>&lt;policyType&gt;</code> argument in <code>./gcam-core/input/addons/example_adjust_electricity_constraint.xml</code> with <code>tax</code>.</strong></p>
 </div>
 </div>
