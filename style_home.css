@@ -4,6 +4,7 @@
 
 h1.title {
     font-size: 100px;
+    font-weight: bold;
     text-align: center;
     margin: 0;
     position: absolute;
@@ -15,6 +16,19 @@ h1.title {
 
 h2 {
     font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+h3 {
+    font-size: 30px;
+    font-weight: bold;
     text-align: center;
     margin: 0;
     position: absolute;

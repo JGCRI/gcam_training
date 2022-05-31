@@ -359,7 +359,8 @@ div.tocify {
 
 
 <div class="header_logo">
-<p><img src="images/logo_gcims_white.png" style="float:right;height:30px; padding-top:10px;"> <img src="images/logo_pnnl_white.png" style="float:right;height:40px;"></p>
+<p><img src="images/logo_gcims_white.png" style="float:right;height:30px; padding-top:10px;">
+<img src="images/logo_pnnl_white.png" style="float:right;height:40px;"></p>
 </div>
 <!-------------------------->
 <div id="gcam-faqs-discussions" class="section level1">
@@ -369,33 +370,41 @@ div.tocify {
 <img src="images/divider.png">
 </p>
 <ul>
-<li>For frequently asked questions, discussions and issues please use the official GCAM discussions page <a href="https://github.com/JGCRI/gcam-core/discussions" class="uri">https://github.com/JGCRI/gcam-core/discussions</a>. You can add new topics or review and rank existing ones as well as offer your own insights or solutions.</li>
-<li>Official GCAM documentation and a quickstart guide can be found here: <a href="http://jgcri.github.io/gcam-doc/index.html" class="uri">http://jgcri.github.io/gcam-doc/index.html</a></li>
+<li>For frequently asked questions, discussions and issues please use
+the official GCAM discussions page <a
+href="https://github.com/JGCRI/gcam-core/discussions"
+class="uri">https://github.com/JGCRI/gcam-core/discussions</a>. You can
+add new topics or review and rank existing ones as well as offer your
+own insights or solutions.</li>
+<li>Official GCAM documentation and a quickstart guide can be found
+here: <a href="http://jgcri.github.io/gcam-doc/index.html"
+class="uri">http://jgcri.github.io/gcam-doc/index.html</a></li>
 </ul>
 <p><br></p>
 <!-------------------------->
 </div>
-<div id="gcam-overview" class="section level1">
-<h1>GCAM Overview</h1>
+<div id="gcam-tutorials" class="section level1">
+<h1>GCAM Tutorials</h1>
 <!-------------------------->
 <p align="center">
 <img src="images/divider.png">
 </p>
-<div id="general-overview" class="section level2">
-<h2>General Overview</h2>
-<hr />
-<ul>
-<li><a href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam_overview.pptx">gcam_overview.pptx</a></li>
-</ul>
 <p><br></p>
-</div>
-<div id="gcam-5.4" class="section level2">
-<h2>GCAM 5.4</h2>
-<hr />
+<p>##GCAM 5.4 ***</p>
+<div id="overview" class="section level3">
+<h3><span class="highlight">Overview</span></h3>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/13tBgM_JWXc?rel=0" frameborder="0" allowfullscreen>
 </iframe>
+<p><br></p>
+<iframe src="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam54_overview.pdf?raw=true" width="100%" height="500px">
+</iframe>
+<p><br></p>
+</div>
+<div id="overview-1" class="section level3">
+<h3><span class="highlight">Overview</span></h3>
 <ul>
-<li><a href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam54_walkthrough.pptx">gcam54_walkthrough.pptx</a></li>
+<li><a
+href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam54_walkthrough.pdf">gcam54_walkthrough.pdf</a></li>
 </ul>
 <p><br></p>
 <!-------------------------->
@@ -420,36 +429,71 @@ div.tocify {
 <div id="using-constraints" class="section level3">
 <h3>Using constraints</h3>
 <ul>
-<li><strong><a href="https://github.com/JGCRI/gcam_training/blob/main/examples/example_adjust_electricity_constraint_subsidy.xml">example_adjust_electricity_constraint.xml</a></strong></li>
-<li>Relevant official GCAM Documentation link: <a href="http://jgcri.github.io/gcam-doc/policies_examples.html" class="uri">http://jgcri.github.io/gcam-doc/policies_examples.html</a></li>
+<li><strong><a
+href="https://github.com/JGCRI/gcam_training/blob/main/examples/example_adjust_electricity_constraint_subsidy.xml">example_adjust_electricity_constraint.xml</a></strong></li>
+<li>Relevant official GCAM Documentation link: <a
+href="http://jgcri.github.io/gcam-doc/policies_examples.html"
+class="uri">http://jgcri.github.io/gcam-doc/policies_examples.html</a></li>
 </ul>
-<p>The electricity generation mix can also be adjusted by setting floors or ceilings using a subsidy or tax policy. Constraints are set for each year within the subsidy or tax policy, and the policy must be passed to each individual <code>subsector</code> and <code>stub-technology</code> that you want to adjust. A list of the <code>subsector</code> and <code>stub-technology</code> available can be found in <code>.gcam-core\input\gcamdata\inst\extdata\energy\A23.globaltech_eff.csv</code>.</p>
+<p>The electricity generation mix can also be adjusted by setting floors
+or ceilings using a subsidy or tax policy. Constraints are set for each
+year within the subsidy or tax policy, and the policy must be passed to
+each individual <code>subsector</code> and <code>stub-technology</code>
+that you want to adjust. A list of the <code>subsector</code> and
+<code>stub-technology</code> available can be found in
+<code>.gcam-core\input\gcamdata\inst\extdata\energy\A23.globaltech_eff.csv</code>.</p>
 <ul>
-<li>Subsidy Policy: With a subsidy policy, a constraint can be set that acts as a generation floor for a given technology or set of technologies; i.e. electricity generation for that technology or total generation for the set of technologies will be at least as high as the constraint.</li>
-<li>Tax Policy: Setting a constraint with a tax policy will have the opposite effect, ensuring that total generation for a technology or set of technologies does not exceed the constraint.</li>
-<li><code>min-price</code>: Additionally, the <code>min-price</code> tag in the example xml below represents the price below which GCAM will consider a market solved (0 by default). It is possible to force generation to exactly match the constraint values rather than setting floors or ceilings by setting min-price to a large negative value in each year (e.g., <min-price year=”2020”>-10000</min-price>)</li>
+<li>Subsidy Policy: With a subsidy policy, a constraint can be set that
+acts as a generation floor for a given technology or set of
+technologies; i.e. electricity generation for that technology or total
+generation for the set of technologies will be at least as high as the
+constraint.</li>
+<li>Tax Policy: Setting a constraint with a tax policy will have the
+opposite effect, ensuring that total generation for a technology or set
+of technologies does not exceed the constraint.</li>
+<li><code>min-price</code>: Additionally, the <code>min-price</code> tag
+in the example xml below represents the price below which GCAM will
+consider a market solved (0 by default). It is possible to force
+generation to exactly match the constraint values rather than setting
+floors or ceilings by setting min-price to a large negative value in
+each year (e.g., <min-price year=”2020”>-10000</min-price>)</li>
 </ul>
-<div class="warning" style="background-color:#fffae0; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
+<div class="warning"
+style="background-color:#fffae0; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <span>
 <p style="margin-top:1em; text-align:center">
 <b>Steps</b>
 </p>
 <p style="margin-left:1em;">
 <ol style="list-style-type: decimal">
-<li>Create a folder in the input directory eg. <code>./gcam-core/input/addons</code>.</li>
-<li>Download the example xml file <a href="https://github.com/JGCRI/gcam_training/blob/main/examples/example_adjust_electricity_constraint_subsidy.xml">example_adjust_electricity_constraint.xml</a> to the folder.</li>
-<li>In the file change the <code>region</code> and <code>market</code> from <code>Thailand</code> to whatever region you want to adjust the electricity mix for.</li>
-<li>Add a <code>policy-portfolio-standard name</code> for your chosen <code>subsector</code></li>
-<li>Adjust the <code>min-price</code> and the <code>constraint</code> for each year to the values desired.</li>
-<li>Lower down in the file assign the corresponding <code>policy-portfolio-standard name</code> to each chosen <code>subsector</code>/<code>stub-technology</code></li>
-<li>Save the xml and then point to it in your configuration file by adding the line:
+<li>Create a folder in the input directory eg.
+<code>./gcam-core/input/addons</code>.</li>
+<li>Download the example xml file <a
+href="https://github.com/JGCRI/gcam_training/blob/main/examples/example_adjust_electricity_constraint_subsidy.xml">example_adjust_electricity_constraint.xml</a>
+to the folder.</li>
+<li>In the file change the <code>region</code> and <code>market</code>
+from <code>Thailand</code> to whatever region you want to adjust the
+electricity mix for.</li>
+<li>Add a <code>policy-portfolio-standard name</code> for your chosen
+<code>subsector</code></li>
+<li>Adjust the <code>min-price</code> and the <code>constraint</code>
+for each year to the values desired.</li>
+<li>Lower down in the file assign the corresponding
+<code>policy-portfolio-standard name</code> to each chosen
+<code>subsector</code>/<code>stub-technology</code></li>
+<li>Save the xml and then point to it in your configuration file by
+adding the line:
 <p style="font-size:0.8em">
 <code>&lt;Value name = "adjust_elec_mix_subsidy"&gt;../gcam-core/input/addons/example_adjust_electricity_constraint.xml&lt;/Value&gt;</code>
 </p></li>
 </ol>
 </p>
 <p style="margin-bottom:1em; margin-left:1em; text-align:left; font-family:Georgia">
-<b>Note: </b> <i>To use a <code>tax</code> policy repeat the steps but replace <code>subsidy</code> in the <code>&lt;policyType&gt;</code> argument in <code>./gcam-core/input/addons/example_adjust_electricity_constraint.xml</code> with <code>tax</code>.</i>
+<b>Note: </b> <i>To use a <code>tax</code> policy repeat the steps but
+replace <code>subsidy</code> in the <code>&lt;policyType&gt;</code>
+argument in
+<code>./gcam-core/input/addons/example_adjust_electricity_constraint.xml</code>
+with <code>tax</code>.</i>
 </p>
 <p></span></p>
 </div>
@@ -498,7 +542,8 @@ div.tocify {
 <div id="required-packages-and-versions" class="section level2">
 <h2>Required packages and versions</h2>
 <hr />
-<p>renv.lock file and instrcutions on how to run to get the correct versions.</p>
+<p>renv.lock file and instrcutions on how to run to get the correct
+versions.</p>
 <p><br></p>
 <!-------------------------->
 </div>
@@ -540,12 +585,41 @@ div.tocify {
 <!-------------------------->
 </div>
 </div>
-<div id="essential-git-commands" class="section level1">
-<h1>Essential Git Commands</h1>
+<div id="git" class="section level1">
+<h1>Git</h1>
 <!-------------------------->
 <p align="center">
 <img src="images/divider.png">
 </p>
+<div id="from-stashbitbucket-to-github" class="section level2">
+<h2>From Stash(Bitbucket) to Github</h2>
+<p>This section discussed how to push a development branch of GCAM from
+stash onto github.</p>
+<div class="warning"
+style="background-color:#fffae0; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
+<span>
+<p style="margin-top:1em; text-align:center">
+<b>From Stash to Github</b>
+</p>
+<p style="margin-left:1em;">
+<ol style="list-style-type: decimal">
+<li>Create a new repository in github: <a href="https://github.com/new"
+class="uri">https://github.com/new</a></li>
+<li>Give it a relevant name such as <code>gcam_v5p4_projectx</code></li>
+<li>Copy the clone address of the new repo e.g. <a
+href="https://github.com/USERNAME/gcam_v5p4_projectx.git"
+class="uri">https://github.com/USERNAME/gcam_v5p4_projectx.git</a></li>
+<li>Push your local stash branch changes up to this branch:
+<p>
+<code>git push -u origin https://github.com/USERNAME/gcam_v5p4_projectx.git</code>
+</p></li>
+<li>Continue to work stash branch as usual and also push up latest
+changes to github as above.</li>
+</ol>
+</p>
+<p></span></p>
+</div>
+</div>
 </div>
 
 
