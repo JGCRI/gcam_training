@@ -59,3 +59,15 @@ h2 {
 h3 {
     font-weight: bold;
 }
+
+
+.video_box {
+    display:inline-block;
+    padding:20px;
+}
+
+figcaption {
+     font-weight: bold;
+     text-align:center;
+     font-size:16px;
+}
