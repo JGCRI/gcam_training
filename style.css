@@ -71,3 +71,18 @@ figcaption {
      text-align:center;
      font-size:16px;
 }
+
+.container_outer {
+  text-align:center;
+  width:100%;
+}
+
+.container_inner {
+  display: inline-block;
+  width: 100%;
+  padding: 20px;
+}
+
+.container_inner:hover{
+  opacity: 0.5;
+}
