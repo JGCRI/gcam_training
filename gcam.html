@@ -13,7 +13,7 @@
 
 <title>gcam_training</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -64,6 +64,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 
 
@@ -88,6 +89,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -313,7 +317,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -438,7 +442,7 @@ Location
 <tbody>
 <tr>
 <td style="text-align:left;">
-gcam5p4_walkthrough.pdf
+gcam6p0_walkthrough.pdf
 </td>
 <td style="text-align:left;">
 GCAM 6.0 walkthrough presentation
@@ -464,24 +468,6 @@ GCAM 6.0 Install Windows
 GCAM 6.0 Install MacOS
 </figcaption>
 <iframe width="200" height="200" src="https://www.youtube.com/embed/c8DmPHHO6DA&amp;t=2s?rel=0" frameborder="0" allowfullscreen>
-</iframe>
-</figure>
-</div>
-<div class="video_box">
-<figure>
-<figcaption>
-gcamdata renv
-</figcaption>
-<iframe width="200" height="200" src="https://www.youtube.com/embed/EO6NPCf7lKc?rel=0" frameborder="0" allowfullscreen>
-</iframe>
-</figure>
-</div>
-<div class="video_box">
-<figure>
-<figcaption>
-gcamdata User Functions
-</figcaption>
-<iframe width="200" height="200" src="https://www.youtube.com/embed/S9PwWAEpLIE?rel=0" frameborder="0" allowfullscreen>
 </iframe>
 </figure>
 </div>
@@ -570,6 +556,8 @@ What’s new in GCAM 5.4?
 <div id="electricity-generation-mix" class="section level2">
 <h2>Electricity Generation Mix</h2>
 <hr />
+<p><b style="font-size:120%;color:#900C3F;"> Note: Last Tested using
+GCAM 6.0</b></p>
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -749,6 +737,8 @@ style="background-color:#efe1f5; border-left: solid #1f1f1f 4px; border-radius: 
 <div id="building-envelope-efficiency" class="section level2">
 <h2>Building Envelope Efficiency</h2>
 <hr />
+<p><b style="font-size:120%;color:#900C3F;"> Note: Last Tested using
+GCAM 6.0</b></p>
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -893,6 +883,8 @@ style="background-color:#efe1f5; border-left: solid #1f1f1f 4px; border-radius: 
 <div id="modifying-technology-costs---evs" class="section level2">
 <h2>Modifying technology costs - EVs</h2>
 <hr />
+<p><b style="font-size:120%;color:#900C3F;"> Note: Last Tested using
+GCAM 6.0</b></p>
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1011,6 +1003,8 @@ adding the line:</li>
 class="section level2">
 <h2>Transportation Mode Shift - Share weights</h2>
 <hr />
+<p><b style="font-size:120%;color:#900C3F;"> Note: Last Tested using
+GCAM 6.0</b></p>
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1145,26 +1139,18 @@ adding the lines:
 <p></span></p>
 </div>
 <p><br></p>
+<!-- <!-------------------------->
+<!-- # Batch runs -->
+<!-- <!-------------------------->
+<!-- <p align="center"> <img src="images/divider.png"></p> -->
+<!-- <br> -->
+<!-- <!-------------------------->
+<!-- # Parallel runs -->
+<!-- <!-------------------------->
+<!-- <p align="center"> <img src="images/divider.png"></p> -->
+<!-- <br> -->
 <!-------------------------->
 </div>
-</div>
-<div id="batch-runs" class="section level1">
-<h1>Batch runs</h1>
-<!-------------------------->
-<p align="center">
-<img src="images/divider.png">
-</p>
-<p><br></p>
-<!-------------------------->
-</div>
-<div id="parallel-runs" class="section level1">
-<h1>Parallel runs</h1>
-<!-------------------------->
-<p align="center">
-<img src="images/divider.png">
-</p>
-<p><br></p>
-<!-------------------------->
 </div>
 <div id="gcamdata" class="section level1">
 <h1>gcamdata</h1>
@@ -1172,51 +1158,45 @@ adding the lines:
 <p align="center">
 <img src="images/divider.png">
 </p>
-<div id="required-packages-and-versions" class="section level2">
-<h2>Required packages and versions</h2>
-<hr />
-<p>renv.lock file and instrcutions on how to run to get the correct
-versions.</p>
+<div class="video_box">
+<figure>
+<figcaption>
+gcamdata renv
+</figcaption>
+<iframe width="200" height="200" src="https://www.youtube.com/embed/EO6NPCf7lKc?rel=0" frameborder="0" allowfullscreen>
+</iframe>
+</figure>
+</div>
+<div class="video_box">
+<figure>
+<figcaption>
+gcamdata User Functions
+</figcaption>
+<iframe width="200" height="200" src="https://www.youtube.com/embed/S9PwWAEpLIE?rel=0" frameborder="0" allowfullscreen>
+</iframe>
+</figure>
+</div>
 <p><br></p>
+<!-- <!-------------------------->
+<!-- # XMLs -->
+<!-- <!-------------------------->
+<!-- <p align="center"> <img src="images/divider.png"></p> -->
+<!-- ## Create XML from csv -->
+<!-- *** -->
+<!-- <br> -->
+<!-- <!-------------------------->
+<!-- # Extracting GCAM data -->
+<!-- <!-------------------------->
+<!-- <p align="center"> <img src="images/divider.png"></p> -->
+<!-- ## rgcam -->
+<!-- *** -->
+<!-- ## modelInterface -->
+<!-- *** -->
+<!-- ## gcamextractor -->
+<!-- *** -->
+<!-- ## Argus -->
+<!-- *** -->
 <!-------------------------->
-</div>
-</div>
-<div id="xmls" class="section level1">
-<h1>XMLs</h1>
-<!-------------------------->
-<p align="center">
-<img src="images/divider.png">
-</p>
-<div id="create-xml-from-csv" class="section level2">
-<h2>Create XML from csv</h2>
-<hr />
-<p><br></p>
-<!-------------------------->
-</div>
-</div>
-<div id="extracting-gcam-data" class="section level1">
-<h1>Extracting GCAM data</h1>
-<!-------------------------->
-<p align="center">
-<img src="images/divider.png">
-</p>
-<div id="rgcam" class="section level2">
-<h2>rgcam</h2>
-<hr />
-</div>
-<div id="modelinterface" class="section level2">
-<h2>modelInterface</h2>
-<hr />
-</div>
-<div id="gcamextractor" class="section level2">
-<h2>gcamextractor</h2>
-<hr />
-</div>
-<div id="argus" class="section level2">
-<h2>Argus</h2>
-<hr />
-<!-------------------------->
-</div>
 </div>
 <div id="git" class="section level1">
 <h1>Git</h1>
