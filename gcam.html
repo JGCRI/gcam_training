@@ -13,7 +13,7 @@
 
 <title>gcam_training</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -64,7 +64,6 @@ if (window.hljs) {
 
 
 
-
 <link rel="stylesheet" href="style.css" type="text/css" />
 
 
@@ -89,9 +88,6 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
 }
 pre code {
   padding: 0;
@@ -317,7 +313,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -440,6 +436,9 @@ class="uri">https://github.com/JGCRI/gcam-core/discussions</a>
 <p align="center">
 <img src="images/divider.png">
 </p>
+<p>This section lists videos and presentations for selected releases of
+GCAM. These materials are usually presented at the GCAM annual meeting
+and curated here as a persistent reference.</p>
 <p><br></p>
 <div id="gcam-6.0" class="section level2">
 <h2>GCAM 6.0</h2>
@@ -572,6 +571,18 @@ What’s new in GCAM 5.4?
 <p align="center">
 <img src="images/divider.png">
 </p>
+<p>This section details how to adjust scenarios in GCAM to explore
+different policy and technology pathways or objectives. The list will
+continue to be expanded on as we gather relevant examples and use-cases.
+For each scenario adjustment we provide:</p>
+<ul>
+<li>Relevant example files</li>
+<li>Goal of the adjustment</li>
+<li>General approach</li>
+<li>Relevant background information related to the adjustment</li>
+<li>Step-by-step guide to implementing the adjustment in GCAM</li>
+<li>Example outputs</li>
+</ul>
 <div id="electricity-generation-mix" class="section level2">
 <h2>Electricity Generation Mix</h2>
 <hr />
@@ -622,9 +633,9 @@ Applying constraints to electricity generation technologies
 <div class="warning"
 style="background-color:#E1F4F5; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <span>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>Goal</b>
-</h3>
+</p>
 <p style="margin-left:1em;">
 <p>This example demonstrates how to set floors and ceilings for
 electricity generation by fuel in GCAM. We will set floors (minimum
@@ -640,9 +651,9 @@ generation amount) for coal from 2025 through 2040.</p>
 <div class="warning"
 style="background-color:#fffae0; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <p><span></p>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>Approach</b>
-</h3>
+</p>
 <p style="margin-left:1em;">
 <p>We can use a <code>policy-portfolio-standard</code> to set floors and
 ceilings for each fuel. This will decrease (increase) the cost of the
@@ -661,9 +672,9 @@ satisfied.</p>
 <div class="warning"
 style="background-color:#EFFFC9; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <p><span></p>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>Background - Policy portfolio standards</b>
-</h3>
+</p>
 <p style="margin-left:1em;">
 A <code>policy-portfolio-standard</code> in GCAM is a policy that can be
 used to implement taxes, subsidies, floors, ceilings, and constraints.
@@ -686,9 +697,9 @@ implement these options.
 <div class="warning"
 style="background-color:#F5E5E1; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <span>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>GCAM Implementation</b>
-</h3>
+</p>
 <p style="margin-left:1em;">
 <ol style="list-style-type: decimal">
 <li>Create a folder in the input directory eg.
@@ -743,9 +754,9 @@ adding the lines:
 <div class="warning"
 style="background-color:#efe1f5; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <span>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>Example Output</b>
-</h3>
+</p>
 <p style="margin-bottom:1em; margin-left:1em; text-align:center;">
 <br> <img src="images/elec_gen_chart.png">
 </p>
@@ -793,9 +804,9 @@ efficiency improvement
 <div class="warning"
 style="background-color:#E1F4F5; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <span>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>Goal</b>
-</h3>
+</p>
 <p style="margin-left:1em;">
 <p>This example demonstrates how to modify building envelope
 efficiencies in GCAM. We will increase efficiency over time, which could
@@ -811,9 +822,9 @@ component of building energy codes.</p>
 <div class="warning"
 style="background-color:#fffae0; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <p><span></p>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>Approach</b>
-</h3>
+</p>
 We can use GCAM’s <code>shell-conductance</code> parameter to represent
 an increase in building envelope efficiency.
 <p style="margin-left:1em;">
@@ -830,9 +841,9 @@ an increase in building envelope efficiency.
 <div class="warning"
 style="background-color:#EFFFC9; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <p><span></p>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>Background - Cooling Demand</b>
-</h3>
+</p>
 <p style="margin-left:1em;">
 Cooling demand in GCAM depends on the indoor-outdoor temperature
 difference (measured using cooling degree days or CDD), the building’s
@@ -856,9 +867,9 @@ difference between the indoor and outdoor temperature.
 <div class="warning"
 style="background-color:#F5E5E1; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <span>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>GCAM Implementation</b>
-</h3>
+</p>
 <p style="margin-left:1em;">
 <ol style="list-style-type: decimal">
 <li>Create a folder in the input directory:
@@ -889,9 +900,9 @@ adding the line:
 <div class="warning"
 style="background-color:#efe1f5; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <span>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>Example Output</b>
-</h3>
+</p>
 <p style="margin-bottom:1em; margin-left:1em; text-align:center;">
 <br> <img src="images/shell_eff_chart.png">
 </p>
@@ -949,9 +960,9 @@ XML for modifying 4-wheel passenger BEV costs
 <div class="warning"
 style="background-color:#E1F4F5; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <span>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>Goal</b>
-</h3>
+</p>
 <p style="margin-left:1em;">
 <p>This example demonstrates how to modify non-energy costs of
 transportation technologies in GCAM. We will decrease these costs for
@@ -967,9 +978,9 @@ lower EV costs.</p>
 <div class="warning"
 style="background-color:#fffae0; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <p><span></p>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>Approach</b>
-</h3>
+</p>
 <p style="margin-left:1em;">
 We can use GCAM’s <code>input-cost</code> parameter, which represents
 the non-energy costs of a given technology.
@@ -986,9 +997,9 @@ the non-energy costs of a given technology.
 <div class="warning"
 style="background-color:#F5E5E1; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <span>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>GCAM Implementation</b>
-</h3>
+</p>
 <p style="margin-left:1em;">
 <ol style="list-style-type: decimal">
 <li>Create a folder in the input directory:
@@ -1018,9 +1029,8 @@ adding the line:</li>
 </div>
 <p><br></p>
 </div>
-<div id="transportation-mode-shift---share-weights"
-class="section level2">
-<h2>Transportation Mode Shift - Share weights</h2>
+<div id="transport-mode-shift---share-weights" class="section level2">
+<h2>Transport Mode Shift - Share weights</h2>
 <hr />
 <p><b style="font-size:120%;color:#900C3F;"> Note: Last Tested using
 GCAM 6.0</b></p>
@@ -1058,9 +1068,9 @@ XML for setting passenger rail share weight dynamics
 <div class="warning"
 style="background-color:#E1F4F5; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <span>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>Goal</b>
-</h3>
+</p>
 <p style="margin-left:1em;">
 <p>This example demonstrates how to adjust share-weights in GCAM. We
 will increase the share-weight of passenger rail transport over time to
@@ -1075,9 +1085,9 @@ represent policies that increase rail infrastructure.</p>
 <div class="warning"
 style="background-color:#fffae0; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <p><span></p>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>Approach</b>
-</h3>
+</p>
 <p style="margin-left:1em;">
 Since infrastructure development is a non-cost impact on rail transport,
 we can use share weights to represent this impact. Share weights are
@@ -1099,9 +1109,9 @@ reference share weights for transportation modes.
 <div class="warning"
 style="background-color:#EFFFC9; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <p><span></p>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>Background - Share weights</b>
-</h3>
+</p>
 <p style="margin-left:1em;">
 Share weights are assigned to different subsectors and technology
 choices in GCAM to represent non-cost factors of consumer choice. They
@@ -1124,9 +1134,9 @@ be used to automatically interpolate shareweights between given years.
 <div class="warning"
 style="background-color:#F5E5E1; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
 <span>
-<h3 style="text-align:center; font-size:24px">
+<p style="text-align:center; font-size:24px">
 <b>GCAM Implementation</b>
-</h3>
+</p>
 <p style="margin-left:1em;">
 <ol style="list-style-type: decimal">
 <li>Create a folder in the input directory:
@@ -1203,19 +1213,43 @@ gcamdata User Functions
 <!-- ## Create XML from csv -->
 <!-- *** -->
 <!-- <br> -->
-<!-- <!-------------------------->
-<!-- # Extracting GCAM data -->
-<!-- <!-------------------------->
+<!-------------------------->
+</div>
+<div id="extracting-gcam-data" class="section level1">
+<h1>Extracting GCAM data</h1>
+<!-------------------------->
 <!-- <p align="center"> <img src="images/divider.png"></p> -->
 <!-- ## rgcam -->
 <!-- *** -->
 <!-- ## modelInterface -->
 <!-- *** -->
-<!-- ## gcamextractor -->
+<div id="gcamextractor" class="section level2">
+<h2>gcamextractor</h2>
 <!-- *** -->
+<p><code>gcamextractor</code> is an R package which allows users to
+extract selected parameters from a GCAM database into standardized
+tables with consistent column names for easier downstream plotting and
+analysis. <code>gcamextractor</code> also converts the extracted data
+into more commonly used units. Detailed documentation for
+<code>gcamextractor</code> can be found in the <a
+href="https://jgcri.github.io/gcamextractor/">user guide</a>. A simple
+example is provided below on how to extract data from GCAM using
+<code>gcamextractor</code> in <code>R</code>. Users can select
+individual parameters listed <a
+href="https://jgcri.github.io/gcamextractor/articles/vignette_parameters.html">here</a>
+or simply select <code>summary</code> for a selection of commonly used
+diagnostic parameters.</p>
+<pre class="r"><code># In R
+# devtools::install_github(&quot;JGCRI/gcamextractor&quot;)
+library(gcamextractor)
+
+data &lt;- gcamextractor::readgcam(gcamdatabase = &quot;PATH_TO_GCAM_DATABASE&quot;,
+                                paramsSelect = c(&quot;pop&quot;,&quot;elecByTechTWh&quot;),
+                                regionsSelect = c(&quot;Argentina&quot;,&quot;Colombia&quot;))</code></pre>
 <!-- ## Argus -->
 <!-- *** -->
 <!-------------------------->
+</div>
 </div>
 <div id="git" class="section level1">
 <h1>Git</h1>
