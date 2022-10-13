@@ -1277,12 +1277,17 @@ href="https://github.com/USERNAME/gcam_v5p4_projectx.git"
 class="uri">https://github.com/USERNAME/gcam_v5p4_projectx.git</a></li>
 <li>Push your local stash branch changes up to this branch:
 <p>
-<code>git push https://github.com/USERNAME/gcam_v5p4_projectx.git</code>
-local_branch_name:new_branch_name
+<code>git push https://github.com/USERNAME/gcam_v5p4_projectx.git local_branch_name:new_branch_name</code>
 </p></li>
 <li>Continue to work stash branch as usual and also push up latest
-changes to github as above.</li>
+changes to github as above.
+<p></li>
 </ol>
+<pre><code>git status
+git add files_changed 
+git commit -m &quot;commit message&quot;
+git push https://github.com/USERNAME/gcam_v5p4_projectx.git local_branch_name:new_branch_name</code></pre>
+</p>
 </p>
 <p></span></p>
 </div>
