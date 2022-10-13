@@ -1243,7 +1243,7 @@ diagnostic parameters.</p>
 # devtools::install_github(&quot;JGCRI/gcamextractor&quot;)
 library(gcamextractor)
 
-data &lt;- gcamextractor::readgcam(gcamdatabase = &quot;PATH_TO_GCAM_DATABASE&quot;,
+data &lt;- gcamextractor::readgcam(gcamdatabase = &quot;FULL/PATH/TO/GCAM_DATABASE&quot;,
                                 paramsSelect = c(&quot;pop&quot;,&quot;elecByTechTWh&quot;),
                                 regionsSelect = c(&quot;Argentina&quot;,&quot;Colombia&quot;))</code></pre>
 <!-- ## Argus -->
@@ -1277,7 +1277,8 @@ href="https://github.com/USERNAME/gcam_v5p4_projectx.git"
 class="uri">https://github.com/USERNAME/gcam_v5p4_projectx.git</a></li>
 <li>Push your local stash branch changes up to this branch:
 <p>
-<code>git push -u origin https://github.com/USERNAME/gcam_v5p4_projectx.git</code>
+<code>git push https://github.com/USERNAME/gcam_v5p4_projectx.git</code>
+local_branch_name:new_branch_name
 </p></li>
 <li>Continue to work stash branch as usual and also push up latest
 changes to github as above.</li>
