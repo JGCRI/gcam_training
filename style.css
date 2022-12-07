@@ -86,3 +86,8 @@ figcaption {
 .container_inner:hover{
   opacity: 0.5;
 }
+
+img:hover {
+  box-shadow: 10px 10px 5px grey;
+  cursor: pointer;
+}

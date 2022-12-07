@@ -13,7 +13,7 @@
 
 <title>gcam_training</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -33,6 +33,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
@@ -64,6 +65,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 
 
@@ -88,6 +90,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -223,6 +228,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -313,7 +321,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -354,6 +362,14 @@ div.tocify {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 
@@ -365,7 +381,29 @@ div.tocify {
 <p><img src="images/logo_gcims_white.png" style="float:right;height:30px; padding-top:10px;">
 <img src="images/logo_pnnl_white.png" style="float:right;height:40px;"></p>
 </div>
-<!-- Zoom into images -->
+<!-- Allow href to tabsets -->
+<script type="text/javascript">
+window.onload = function() {
+  document.querySelector('a[href="' + window.location.href.match("#.*$") + '"]').click();
+}
+
+function goToTab() {
+  var hash = String(window.location.href.match("#.*$"));
+  var target = document.querySelector("a[role = 'tab'][href='" + hash + "']");
+  if (target !== null) {
+    var greatgrandparent = target.parentElement.parentElement.parentElement;
+    if (greatgrandparent.getAttribute("role") == "tabpanel") {
+      document.querySelector("a[role = 'tab'][href='#" + greatgrandparent.getAttribute("id") + "']").click();
+    }
+    target.click();
+    target.scrollIntoView();
+  }
+}
+window.onload = function() {
+  setTimeout(goToTab, 100);
+}
+window.onhashchange = goToTab;
+</script>
 <style type="text/css">
 script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
 </style>
@@ -383,6 +421,20 @@ script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
     });
   });
 </script>
+<!-- Set table styles -->
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+</style>
 <!-------------------------->
 <!-------------------------->
 <div id="key-links" class="section level1">
@@ -429,8 +481,8 @@ class="uri">https://github.com/JGCRI/gcam-core/discussions</a>
 <!-------------------------->
 <!-------------------------->
 </div>
-<div id="tutorials" class="section level1">
-<h1>Tutorials</h1>
+<div id="tutorials" class="section level1 tabset tabset-pills">
+<h1 class="tabset tabset-pills">Tutorials</h1>
 <!-------------------------->
 <!-------------------------->
 <p align="center">
@@ -552,9 +604,35 @@ What’s new in GCAM 5.4?
 </figure>
 </div>
 <p><br></p>
+<!-------------------------->
 </div>
-<div id="gcam-software-map" class="section level2">
-<h2>GCAM Software Map</h2>
+<div id="gcamdata" class="section level2">
+<h2>gcamdata</h2>
+<!-------------------------->
+<hr />
+<div class="video_box">
+<figure>
+<figcaption>
+gcamdata renv
+</figcaption>
+<iframe width="200" height="200" src="https://www.youtube.com/embed/EO6NPCf7lKc?rel=0" frameborder="0" allowfullscreen>
+</iframe>
+</figure>
+</div>
+<div class="video_box">
+<figure>
+<figcaption>
+gcamdata User Functions
+</figcaption>
+<iframe width="200" height="200" src="https://www.youtube.com/embed/S9PwWAEpLIE?rel=0" frameborder="0" allowfullscreen>
+</iframe>
+</figure>
+</div>
+<p><br></p>
+</div>
+<div id="gcam-software-used" class="section level2">
+<h2>GCAM Software Used</h2>
+<hr />
 <p style="margin-bottom:1em; margin-left:1em; text-align:center;">
 <br>
 <img src="images/gcam_software_map.jpg" width="60%" style="display: block; margin: auto;" />
@@ -585,9 +663,6 @@ For each scenario adjustment we provide:</p>
 </ul>
 <div id="electricity-generation-mix" class="section level2">
 <h2>Electricity Generation Mix</h2>
-<hr />
-<p><b style="font-size:120%;color:#900C3F;"> Note: Last Tested using
-GCAM 6.0</b></p>
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -758,7 +833,7 @@ style="background-color:#efe1f5; border-left: solid #1f1f1f 4px; border-radius: 
 <b>Example Output</b>
 </p>
 <p style="margin-bottom:1em; margin-left:1em; text-align:center;">
-<br> <img src="images/elec_gen_chart.png">
+<br> <img src="images/elec_gen_chart.jpg">
 </p>
 <p></span></p>
 </div>
@@ -766,9 +841,6 @@ style="background-color:#efe1f5; border-left: solid #1f1f1f 4px; border-radius: 
 </div>
 <div id="building-envelope-efficiency" class="section level2">
 <h2>Building Envelope Efficiency</h2>
-<hr />
-<p><b style="font-size:120%;color:#900C3F;"> Note: Last Tested using
-GCAM 6.0</b></p>
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -904,7 +976,7 @@ style="background-color:#efe1f5; border-left: solid #1f1f1f 4px; border-radius: 
 <b>Example Output</b>
 </p>
 <p style="margin-bottom:1em; margin-left:1em; text-align:center;">
-<br> <img src="images/shell_eff_chart.png">
+<br> <img src="images/shell_eff_chart.jpg">
 </p>
 <p></span></p>
 </div>
@@ -912,9 +984,6 @@ style="background-color:#efe1f5; border-left: solid #1f1f1f 4px; border-radius: 
 </div>
 <div id="modifying-technology-costs---evs" class="section level2">
 <h2>Modifying technology costs - EVs</h2>
-<hr />
-<p><b style="font-size:120%;color:#900C3F;"> Note: Last Tested using
-GCAM 6.0</b></p>
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1031,9 +1100,6 @@ adding the line:</li>
 </div>
 <div id="transport-mode-shift---share-weights" class="section level2">
 <h2>Transport Mode Shift - Share weights</h2>
-<hr />
-<p><b style="font-size:120%;color:#900C3F;"> Note: Last Tested using
-GCAM 6.0</b></p>
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1178,34 +1244,6 @@ adding the lines:
 <!-- <!-------------------------->
 <!-- <p align="center"> <img src="images/divider.png"></p> -->
 <!-- <br> -->
-<!-------------------------->
-</div>
-</div>
-<div id="gcamdata" class="section level1">
-<h1>gcamdata</h1>
-<!-------------------------->
-<p align="center">
-<img src="images/divider.png">
-</p>
-<div class="video_box">
-<figure>
-<figcaption>
-gcamdata renv
-</figcaption>
-<iframe width="200" height="200" src="https://www.youtube.com/embed/EO6NPCf7lKc?rel=0" frameborder="0" allowfullscreen>
-</iframe>
-</figure>
-</div>
-<div class="video_box">
-<figure>
-<figcaption>
-gcamdata User Functions
-</figcaption>
-<iframe width="200" height="200" src="https://www.youtube.com/embed/S9PwWAEpLIE?rel=0" frameborder="0" allowfullscreen>
-</iframe>
-</figure>
-</div>
-<p><br></p>
 <!-- <!-------------------------->
 <!-- # XMLs -->
 <!-- <!-------------------------->
@@ -1215,17 +1253,20 @@ gcamdata User Functions
 <!-- <br> -->
 <!-------------------------->
 </div>
+</div>
 <div id="extracting-gcam-data" class="section level1">
 <h1>Extracting GCAM data</h1>
 <!-------------------------->
-<!-- <p align="center"> <img src="images/divider.png"></p> -->
+<p align="center">
+<img src="images/divider.png">
+</p>
 <!-- ## rgcam -->
 <!-- *** -->
 <!-- ## modelInterface -->
 <!-- *** -->
 <div id="gcamextractor" class="section level2">
 <h2>gcamextractor</h2>
-<!-- *** -->
+<hr />
 <p><code>gcamextractor</code> is an R package which allows users to
 extract selected parameters from a GCAM database into standardized
 tables with consistent column names for easier downstream plotting and
@@ -1242,13 +1283,132 @@ diagnostic parameters.</p>
 <pre class="r"><code># In R
 # devtools::install_github(&quot;JGCRI/gcamextractor&quot;)
 library(gcamextractor)
+gcamextractor::params # Check all available params
 
 data &lt;- gcamextractor::readgcam(gcamdatabase = &quot;FULL/PATH/TO/GCAM_DATABASE&quot;,
-                                paramsSelect = c(&quot;pop&quot;,&quot;elecByTechTWh&quot;),
-                                regionsSelect = c(&quot;Argentina&quot;,&quot;Colombia&quot;))</code></pre>
-<!-- ## Argus -->
-<!-- *** -->
+                                paramsSelect = c(&quot;pop&quot;,&quot;elecByTechTWh&quot;,&quot;watWithdrawBySec&quot;),
+                                regionsSelect = c(&quot;Argentina&quot;,&quot;Colombia&quot;))
+
+dataGCAM$data # View all data
+dataGCAM$dataAggClass1 # Aggregated to class 1 vars (Example file linked above)
+dataGCAM$dataAggClass2 # Aggregated to class 2 vars
+dataGCAM$dataAggParam # Aggregated to params</code></pre>
+<p><br></p>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;color: white !important;background-color: #2A2A2A !important;">
+Files Used
+</th>
+<th style="text-align:left;color: white !important;background-color: #2A2A2A !important;">
+Description
+</th>
+<th style="text-align:left;color: white !important;background-color: #2A2A2A !important;">
+Link
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+gcamDataTable_aggClass1.csv
+</td>
+<td style="text-align:left;">
+One of the outputs from the gcamextractor examples shown here.
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/JGCRI/gcam_training/blob/main/examples/gcamDataTable_aggClass1.csv" style="     ">Link</a>
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
 <!-------------------------->
+</div>
+</div>
+<div id="plotting-data" class="section level1">
+<h1>Plotting Data</h1>
+<!-------------------------->
+<p align="center">
+<img src="images/divider.png">
+</p>
+<div id="rchart" class="section level2 tabset tabset-pills">
+<h2 class="tabset tabset-pills">rchart</h2>
+<hr />
+<!-- *** -->
+<p><code>rchart</code> is an R package which allows users to plot
+<code>gcamextractor</code> outputs into charts with standardized JGCRI
+colors. Detailed documentation for <code>rchart</code> can be found in
+the <a href="https://jgcri.github.io/rchart/">user guide</a>. Some
+examples are provided below using example data uploaded to the
+<code>gcam_training</code> repository. Users can extract the data from
+their own databases using the gcamextractor example shown <a
+href="#gcamextractor">above</a>. Combining <code>gcamextractor</code>
+and <code>rchart</code> you can plot very detailed data in just one line
+of code.</p>
+<pre class="r fold-show"><code># devtools::install_github(&quot;JGCRI/rchart&quot;) # If needed
+library(rchart)
+
+data &lt;- data.table(url(&quot;https://github.com/JGCRI/gcam_training/blob/main/examples/gcamDataTable_aggClass1.csv&quot;)) # Read Data
+charts &lt;- rchart::chart(data, save=F, scenRef = &quot;GCAM_SSP2&quot;) # Plot data
+names(charts) # See list of charts</code></pre>
+<p>Below you can see the outputs for all the different charts
+produced.</p>
+<div id="chart_param" class="section level3">
+<h3>chart_param</h3>
+<pre class="r fold-show"><code>charts$chart_param_Argentina</code></pre>
+<p><img src="gcam_files/figure-html/rchart_examples_param-1.png" width="100%" /></p>
+<pre class="r fold-show"><code>charts$chart_param_Colombia</code></pre>
+<p><img src="gcam_files/figure-html/rchart_examples_param-2.png" width="100%" /></p>
+<p><br></p>
+</div>
+<div id="chart_param_diff" class="section level3">
+<h3>chart_param_diff</h3>
+<pre class="r fold-show"><code>charts$chart_param_diff_absolute_Argentina</code></pre>
+<p><img src="gcam_files/figure-html/rchart_examples_param_diff-1.png" width="100%" /></p>
+<pre class="r fold-show"><code>charts$chart_param_diff_percent_Argentina</code></pre>
+<p><img src="gcam_files/figure-html/rchart_examples_param_diff-2.png" width="100%" /></p>
+<pre class="r fold-show"><code>charts$chart_param_diff_absolute_Colombia</code></pre>
+<p><img src="gcam_files/figure-html/rchart_examples_param_diff-3.png" width="100%" /></p>
+<pre class="r fold-show"><code>charts$chart_param_diff_percent_Colombia</code></pre>
+<p><img src="gcam_files/figure-html/rchart_examples_param_diff-4.png" width="100%" /></p>
+<p><br></p>
+</div>
+<div id="chart_class" class="section level3">
+<h3>chart_class</h3>
+<pre class="r fold-show"><code>charts$chart_class_Argentina</code></pre>
+<p><img src="gcam_files/figure-html/rchart_examples_class-1.png" width="100%" /></p>
+<pre class="r fold-show"><code>charts$chart_class_Colombia</code></pre>
+<p><img src="gcam_files/figure-html/rchart_examples_class-2.png" width="100%" /></p>
+<p><br></p>
+</div>
+<div id="chart_class_diff" class="section level3">
+<h3>chart_class_diff</h3>
+<pre class="r fold-show"><code>charts$chart_class_diff_absolute_Argentina</code></pre>
+<p><img src="gcam_files/figure-html/rchart_examples_class_diff-1.png" width="100%" /></p>
+<pre class="r fold-show"><code>charts$chart_class_diff_percent_Argentina</code></pre>
+<p><img src="gcam_files/figure-html/rchart_examples_class_diff-2.png" width="100%" /></p>
+<pre class="r fold-show"><code>charts$chart_class_diff_absolute_Colombia</code></pre>
+<p><img src="gcam_files/figure-html/rchart_examples_class_diff-3.png" width="100%" /></p>
+<pre class="r fold-show"><code>charts$chart_class_diff_percent_Colombia</code></pre>
+<p><img src="gcam_files/figure-html/rchart_examples_class_diff-4.png" width="100%" /></p>
+<p><br></p>
+</div>
+<div id="chart_region" class="section level3">
+<h3>chart_region</h3>
+<pre class="r fold-show"><code>charts$chart_region_absolute</code></pre>
+<p><img src="gcam_files/figure-html/rchart_examples_region-1.png" width="100%" /></p>
+<p><br></p>
+</div>
+<div id="chart_waterfall" class="section level3">
+<h3>chart_waterfall</h3>
+<pre class="r fold-show"><code>charts$chart_class_waterfall_Argentina</code></pre>
+<p><img src="gcam_files/figure-html/rchart_examples_waterfall-1.png" width="100%" /></p>
+<pre class="r fold-show"><code>charts$chart_class_waterfall_Argentina</code></pre>
+<p><img src="gcam_files/figure-html/rchart_examples_waterfall-2.png" width="100%" /></p>
+<p><br></p>
+<!-------------------------->
+</div>
 </div>
 </div>
 <div id="git" class="section level1">
@@ -1329,6 +1489,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
 
 <script>
 $(document).ready(function ()  {
