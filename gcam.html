@@ -1352,7 +1352,7 @@ their own databases using the gcamextractor example shown <a
 href="#gcamextractor">above</a>. Combining <code>gcamextractor</code>
 and <code>rchart</code> you can plot very detailed data in just one line
 of code.</p>
-<pre class="r fold-show"><code># devtools::install_github(&quot;JGCRI/rchart&quot;) # If needed
+<pre class="r"><code># devtools::install_github(&quot;JGCRI/rchart&quot;) # If needed
 library(rchart); 
 url &lt;- &quot;https://raw.githubusercontent.com/JGCRI/gcam_training/main/examples/gcamDataTable_aggClass1.csv&quot;
 data &lt;- read.csv(url) # Read Data
@@ -1362,47 +1362,48 @@ names(charts) # See list of charts</code></pre>
 produced.</p>
 <div id="chart_param" class="section level3">
 <h3>chart_param</h3>
-<pre class="r fold-show"><code>charts$chart_param_Argentina</code></pre>
+<!-- To force show code add ```{r class.source = 'fold-show'} -->
+<pre class="r"><code>charts$chart_param_Argentina</code></pre>
 <p><img src="gcam_files/figure-html/rchart_examples_param-1.png" width="100%" /></p>
-<pre class="r fold-show"><code>charts$chart_param_Colombia</code></pre>
+<pre class="r"><code>charts$chart_param_Colombia</code></pre>
 <p><img src="gcam_files/figure-html/rchart_examples_param-2.png" width="100%" /></p>
 <p><br></p>
 </div>
 <div id="chart_param_diff" class="section level3">
 <h3>chart_param_diff</h3>
-<pre class="r fold-show"><code>charts$chart_param_diff_absolute_Argentina</code></pre>
+<pre class="r"><code>charts$chart_param_diff_absolute_Argentina</code></pre>
 <p><img src="gcam_files/figure-html/rchart_examples_param_diff-1.png" width="100%" /></p>
-<pre class="r fold-show"><code>charts$chart_param_diff_percent_Argentina</code></pre>
+<pre class="r"><code>charts$chart_param_diff_percent_Argentina</code></pre>
 <p><img src="gcam_files/figure-html/rchart_examples_param_diff-2.png" width="100%" /></p>
-<pre class="r fold-show"><code>charts$chart_param_diff_absolute_Colombia</code></pre>
+<pre class="r"><code>charts$chart_param_diff_absolute_Colombia</code></pre>
 <p><img src="gcam_files/figure-html/rchart_examples_param_diff-3.png" width="100%" /></p>
-<pre class="r fold-show"><code>charts$chart_param_diff_percent_Colombia</code></pre>
+<pre class="r"><code>charts$chart_param_diff_percent_Colombia</code></pre>
 <p><img src="gcam_files/figure-html/rchart_examples_param_diff-4.png" width="100%" /></p>
 <p><br></p>
 </div>
 <div id="chart_class" class="section level3">
 <h3>chart_class</h3>
-<pre class="r fold-show"><code>charts$chart_class_Argentina</code></pre>
+<pre class="r"><code>charts$chart_class_Argentina</code></pre>
 <p><img src="gcam_files/figure-html/rchart_examples_class-1.png" width="100%" /></p>
-<pre class="r fold-show"><code>charts$chart_class_Colombia</code></pre>
+<pre class="r"><code>charts$chart_class_Colombia</code></pre>
 <p><img src="gcam_files/figure-html/rchart_examples_class-2.png" width="100%" /></p>
 <p><br></p>
 </div>
 <div id="chart_class_diff" class="section level3">
 <h3>chart_class_diff</h3>
-<pre class="r fold-show"><code>charts$chart_class_diff_absolute_Argentina</code></pre>
+<pre class="r"><code>charts$chart_class_diff_absolute_Argentina</code></pre>
 <p><img src="gcam_files/figure-html/rchart_examples_class_diff-1.png" width="100%" /></p>
-<pre class="r fold-show"><code>charts$chart_class_diff_percent_Argentina</code></pre>
+<pre class="r"><code>charts$chart_class_diff_percent_Argentina</code></pre>
 <p><img src="gcam_files/figure-html/rchart_examples_class_diff-2.png" width="100%" /></p>
-<pre class="r fold-show"><code>charts$chart_class_diff_absolute_Colombia</code></pre>
+<pre class="r"><code>charts$chart_class_diff_absolute_Colombia</code></pre>
 <p><img src="gcam_files/figure-html/rchart_examples_class_diff-3.png" width="100%" /></p>
-<pre class="r fold-show"><code>charts$chart_class_diff_percent_Colombia</code></pre>
+<pre class="r"><code>charts$chart_class_diff_percent_Colombia</code></pre>
 <p><img src="gcam_files/figure-html/rchart_examples_class_diff-4.png" width="100%" /></p>
 <p><br></p>
 </div>
 <div id="chart_region" class="section level3">
 <h3>chart_region</h3>
-<pre class="r fold-show"><code>charts$chart_region_absolute</code></pre>
+<pre class="r"><code>charts$chart_region_absolute</code></pre>
 <p><img src="gcam_files/figure-html/rchart_examples_region-1.png" width="100%" /></p>
 <p><br></p>
 <!-------------------------->
