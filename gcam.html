@@ -13,7 +13,7 @@
 
 <title>gcam_training</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -65,7 +65,6 @@ if (window.hljs) {
 
 
 
-
 <link rel="stylesheet" href="style.css" type="text/css" />
 
 
@@ -90,9 +89,6 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
 }
 pre code {
   padding: 0;
@@ -321,7 +317,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -370,7 +366,7 @@ div.tocify {
 <div id="header">
 
 <div class="btn-group pull-right float-right">
-<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
 <ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
 <li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
 <li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
@@ -521,7 +517,7 @@ Location
 gcam6p0_walkthrough.pdf
 </td>
 <td style="text-align:left;">
-GCAM 6.0 walkthrough presentation
+GCAM 6.0 walkthrough presentation (how to run GCAM)
 </td>
 <td style="text-align:left;">
 <a href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam6p0_walkthrough.pdf" style="     ">Link</a>
@@ -616,6 +612,35 @@ What’s new in GCAM 5.4?
 <h2>gcamdata</h2>
 <!-------------------------->
 <hr />
+<table class="table table-bordered table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;color: white !important;background-color: #2A2A2A !important;">
+File
+</th>
+<th style="text-align:left;color: white !important;background-color: #2A2A2A !important;">
+Description
+</th>
+<th style="text-align:left;color: white !important;background-color: #2A2A2A !important;">
+Location
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+gcamdata.pdf
+</td>
+<td style="text-align:left;">
+Introduction to gcamdata (GCAM’s data system), including R package
+management with renv
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam_annual_meeting_2023_trainings/gcamdata.pdf" style="     ">Link</a>
+</td>
+</tr>
+</tbody>
+</table>
 <div class="video_box">
 <figure>
 <figcaption>
@@ -642,6 +667,74 @@ gcamdata User Functions
 <p style="margin-bottom:1em; margin-left:1em; text-align:center;">
 <br>
 <img src="images/gcam_software_map.jpg" width="60%" style="display: block; margin: auto;" />
+</p>
+<p><br></p>
+</div>
+<div id="other-resources" class="section level2">
+<h2>Other resources</h2>
+<hr />
+<table class="table table-bordered table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;color: white !important;background-color: #2A2A2A !important;">
+File
+</th>
+<th style="text-align:left;color: white !important;background-color: #2A2A2A !important;">
+Description
+</th>
+<th style="text-align:left;color: white !important;background-color: #2A2A2A !important;">
+Location
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+scenario_adjustment.pdf
+</td>
+<td style="text-align:left;">
+Guide to designing and implementing scenarios in GCAM
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam_annual_meeting_2023_trainings/scenario_adjustment.pdf" style="     ">Link</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+create_xmls_user_mod.pdf
+</td>
+<td style="text-align:left;">
+Guide to modifying GCAM’s XML inputs, creating new XMLs, and using user
+modification functions in gcamdata
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam_annual_meeting_2023_trainings/create_xmls_user_mod.pdf" style="     ">Link</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GCAM-USA.pdf
+</td>
+<td style="text-align:left;">
+Introduction to GCAM-USA
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam_annual_meeting_2023_trainings/GCAM-USA.pdf" style="     ">Link</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+querying_GCAM_outputs.pdf
+</td>
+<td style="text-align:left;">
+Guide to querying GCAM outputs using Model Interface and rgcam
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam_annual_meeting_2023_trainings/querying_GCAM_outputs.pdf" style="     ">Link</a>
+</td>
+</tr>
+</tbody>
+</table>
 </p>
 <p><br></p>
 <!-------------------------->
