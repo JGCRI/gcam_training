@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<queries>
+ <aQuery>
+  <region name="HI"/>
+  <region name="DE"/>
+  <region name="TX"/>
+  <region name="MA"/>
+  <region name="MD"/>
+  <region name="ME"/>
+  <region name="IA"/>
+  <region name="ID"/>
+  <region name="MI"/>
+  <region name="UT"/>
+  <region name="MN"/>
+  <region name="MO"/>
+  <region name="IL"/>
+  <region name="IN"/>
+  <region name="MS"/>
+  <region name="MT"/>
+  <region name="AK"/>
+  <region name="VA"/>
+  <region name="AL"/>
+  <region name="AR"/>
+  <region name="NC"/>
+  <region name="ND"/>
+  <region name="RI"/>
+  <region name="NE"/>
+  <region name="AZ"/>
+  <region name="NH"/>
+  <region name="NJ"/>
+  <region name="VT"/>
+  <region name="NM"/>
+  <region name="FL"/>
+  <region name="NV"/>
+  <region name="WA"/>
+  <region name="NY"/>
+  <region name="SC"/>
+  <region name="SD"/>
+  <region name="WI"/>
+  <region name="OH"/>
+  <region name="GA"/>
+  <region name="OK"/>
+  <region name="CA"/>
+  <region name="WV"/>
+  <region name="WY"/>
+  <region name="OR"/>
+  <region name="KS"/>
+  <region name="CO"/>
+  <region name="KY"/>
+  <region name="CT"/>
+  <region name="PA"/>
+  <region name="LA"/>
+  <region name="TN"/>
+  <region name="DC"/>
+  <supplyDemandQuery title="elec gen by gen tech USA">
+   <axis1 name="technology">technology</axis1>
+   <axis2 name="Year">physical-output[@vintage]</axis2>
+   <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='electricity' or
+                @name='base load generation' or @name='intermediate generation' or @name='subpeak generation' or @name='peak generation' or
+                @name='elect_td_bld' or @name='industrial energy use')]//
+                *[@type='subsector']//*[@type='technology' and not (@name='electricity' or @name='elect_td_bld')]/
+                *[@type='output' (:collapse:) and (@name='electricity' or @name='base load generation' or @name='intermediate generation' or
+                @name='subpeak generation' or @name='peak generation' or @name='elect_td_bld')]/
+                physical-output/node()</xPath>
+   <comments/>
+  </supplyDemandQuery>
+ </aQuery>
+ <aQuery>
+  <region name="HI"/>
+  <region name="DE"/>
+  <region name="TX"/>
+  <region name="MA"/>
+  <region name="MD"/>
+  <region name="ME"/>
+  <region name="IA"/>
+  <region name="ID"/>
+  <region name="MI"/>
+  <region name="UT"/>
+  <region name="MN"/>
+  <region name="MO"/>
+  <region name="IL"/>
+  <region name="IN"/>
+  <region name="MS"/>
+  <region name="MT"/>
+  <region name="AK"/>
+  <region name="VA"/>
+  <region name="AL"/>
+  <region name="AR"/>
+  <region name="NC"/>
+  <region name="ND"/>
+  <region name="RI"/>
+  <region name="NE"/>
+  <region name="AZ"/>
+  <region name="NH"/>
+  <region name="NJ"/>
+  <region name="VT"/>
+  <region name="NM"/>
+  <region name="FL"/>
+  <region name="NV"/>
+  <region name="WA"/>
+  <region name="NY"/>
+  <region name="SC"/>
+  <region name="SD"/>
+  <region name="WI"/>
+  <region name="OH"/>
+  <region name="GA"/>
+  <region name="OK"/>
+  <region name="CA"/>
+  <region name="WV"/>
+  <region name="WY"/>
+  <region name="OR"/>
+  <region name="KS"/>
+  <region name="CO"/>
+  <region name="KY"/>
+  <region name="CT"/>
+  <region name="PA"/>
+  <region name="LA"/>
+  <region name="TN"/>
+  <region name="DC"/>
+  <supplyDemandQuery title="elec gen by gen tech cogen USA">
+   <axis1 name="technology">technology</axis1>
+   <axis2 name="Year">physical-output[@vintage]</axis2>
+   <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='electricity' or
+                @name='base load generation' or @name='intermediate generation' or @name='subpeak generation' or @name='peak generation' or
+                @name='elect_td_bld' or @name='industrial energy use')]/
+                *[@type='subsector']/*[@type='technology' and not (@name='electricity' or @name='elect_td_bld')]/
+                *[@type='output' (:collapse:) and (@name='electricity' or @name='base load generation' or @name='intermediate generation' or
+                @name='subpeak generation' or @name='peak generation' or @name='elect_td_bld')]/
+                physical-output/node()</xPath>
+   <comments/>
+  </supplyDemandQuery>
+ </aQuery>
+ <aQuery>
+  <all-regions/>
+  <supplyDemandQuery title="elec gen by gen tech and cooling tech">
+   <axis1 name="technology">technology</axis1>
+   <axis2 name="Year">physical-output[@vintage]</axis2>
+   <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='electricity' or @name='elect_td_bld' or
+                  contains(@name,'elec_')) and not(contains(@name, 'water_td'))]/
+                  *[@type='subsector' and not (@name='elect_td_bld')]/
+                  *[@type='technology' and not(@name='biomass (conv)' or @name='biomass (conv CCS)' or @name='biomass (IGCC)' or @name='biomass (IGCC CCS)'
+                                   or @name='coal (conv pul)' or @name='coal (conv pul CCS)' or @name='coal (IGCC)' or @name='coal (IGCC CCS)'
+                                   or @name='gas (steam/CT)' or @name='gas (CC)' or @name='gas (CC CCS)'
+                                   or @name='refined liquids (steam/CT)' or @name='refined liquids (CC)' or @name='refined liquids (CC CCS)'
+                                   or @name='geothermal' or @name='Gen_II_LWR' or @name='Gen_III'
+                                   or @name='CSP' or @name='CSP_storage')]/
+                  *[@type='output']/physical-output/node()</xPath>
+   <comments/>
+   <labelRewriteList append-values="false">
+    <level name="sector">
+     <rewrite from="elec_gas (CC CCS)" to="electricity"/>
+     <rewrite from="elec_coal (conv pul)" to="electricity"/>
+     <rewrite from="elec_biomass (IGCC CCS)" to="electricity"/>
+     <rewrite from="elec_coal (IGCC CCS)" to="electricity"/>
+     <rewrite from="elec_gas (CC)" to="electricity"/>
+     <rewrite from="elec_coal (conv pul CCS)" to="electricity"/>
+     <rewrite from="elec_CSP" to="electricity"/>
+     <rewrite from="elec_Gen_II_LWR" to="electricity"/>
+     <rewrite from="elec_refined liquids (steam/CT)" to="electricity"/>
+     <rewrite from="elec_refined liquids (CC)" to="electricity"/>
+     <rewrite from="elec_Gen_III" to="electricity"/>
+     <rewrite from="elec_geothermal" to="electricity"/>
+     <rewrite from="elec_refined liquids (CC CCS)" to="electricity"/>
+     <rewrite from="elec_biomass (conv)" to="electricity"/>
+     <rewrite from="elec_gas (steam/CT)" to="electricity"/>
+     <rewrite from="elec_biomass (conv CCS)" to="electricity"/>
+     <rewrite from="elec_biomass (IGCC)" to="electricity"/>
+     <rewrite from="elec_coal (IGCC)" to="electricity"/>
+     <rewrite from="elec_CSP_storage" to="electricity"/>
+    </level>
+    <level name="subsector">
+     <rewrite from="biomass (IGCC CCS)" to="biomass"/>
+     <rewrite from="biomass (IGCC)" to="biomass"/>
+     <rewrite from="coal (IGCC CCS)" to="coal"/>
+     <rewrite from="CSP" to="solar"/>
+     <rewrite from="Gen_III" to="nuclear"/>
+     <rewrite from="refined liquids (CC CCS)" to="refined liquids"/>
+     <rewrite from="gas (CC)" to="gas"/>
+     <rewrite from="Gen_II_LWR" to="nuclear"/>
+     <rewrite from="coal (conv pul CCS)" to="coal"/>
+     <rewrite from="biomass (conv)" to="biomass"/>
+     <rewrite from="gas (steam/CT)" to="gas"/>
+     <rewrite from="coal (conv pul)" to="coal"/>
+     <rewrite from="gas (CC CCS)" to="gas"/>
+     <rewrite from="refined liquids (CC)" to="refined liquids"/>
+     <rewrite from="coal (IGCC)" to="coal"/>
+     <rewrite from="biomass (conv CCS)" to="biomass"/>
+     <rewrite from="CSP_storage" to="solar"/>
+     <rewrite from="refined liquids (steam/CT)" to="refined liquids"/>
+    </level>
+   </labelRewriteList>
+  </supplyDemandQuery>
+ </aQuery>
+ <aQuery>
+  <all-regions/>
+  <demographicsQuery title="Population by region">
+   <axis1 name="region">region</axis1>
+   <axis2 name="Year">populationMiniCAM</axis2>
+   <xPath buildList="true" dataName="total-population" group="false" sumAll="false">demographics/populationMiniCAM/total-population/node()</xPath>
+   <comments/>
+  </demographicsQuery>
+ </aQuery>
+</queries>

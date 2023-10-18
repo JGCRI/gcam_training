@@ -22,8 +22,6 @@ library(dplyr)
 
 
 # gcamextractor basic example
-library(gcamextractor)
-
 path_to_gcam_database <- "C:/gcam/gcam-v6.0-Windows-Release-Package/output/database_basexdb_ssp235"
 gcamextractor::params # view available parameters
 dataGCAM <- gcamextractor::readgcam(gcamdatabase = path_to_gcam_database,
@@ -41,6 +39,7 @@ data_chart <- dfClass1 %>%
   dplyr::filter(subRegion %in% c("Argentina", "Colombia"))
 
 charts <- rchart::chart(data_chart)
+charts$chart_param_Argentina
 charts$chart_param_Argentina
 charts$chart_class_GCAM_SSP2
 
@@ -374,6 +373,7 @@ rmap::map(data = data,
           ncol=4,
           background = T) -> m1;
 
+
 m1$map_param_KMEANS
 m1$map_param_MEAN_KMEANS
 
@@ -395,6 +395,7 @@ mapx <- rmap::map(save=F,data = data,
                   xRef = 2010,
                   xDiff = c(2020,2030))
 
+mapx$map_param_2030_KMEANS_xDiffAbs
 mapx$map_param_KMEANS_xDiffAbs
 mapx$map_param_KMEANS_xDiffPrcnt
 
@@ -513,6 +514,7 @@ rmap::map(save=F,data = data,
           palette = "pal_wet",
           paletteDiff = "pal_div_BrGn") -> m1
 
+m1$map_param_KMEANS
 m1$map_param_KMEANS
 m1$map_param_KMEANS_DiffAbs
 

@@ -859,3 +859,89 @@ git push https://github.com/USERNAME/gcam_v5p4_projectx.git local_branch_name:ne
 </p>
 </p></span>
 </div>
+
+
+<br>
+
+<!-------------------------->
+# Send to Zenodo
+<!-------------------------->
+<p align="center"> <img src="images/divider.png"></p>
+
+## Large files (<50GB) from HPC to Zenodo
+
+This section discusses how to send large files (upto 50GB) directly to zenodo from an HPC. For example a compiled zipped version of GCAM. Using a traditional method of uploading directly from the broswer often doesn't work and keeps crashing during the upload. Using the method below you can submit the upload as a job.
+
+<div class="warning" style='background-color:#fffae0; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;'>
+<span>
+<p style='margin-top:1em; text-align:center'>
+<b>HPC to Zenodo</b></p>
+<p style='margin-left:1em;'>
+1. Prepare your zipped file and save it on the HPC: **<path/to/my_zipped_file.zip>**
+2. Sign-in to your Zenodo account
+3. **DEPOSITION_ID** is the first thing you need: 
+    a. Create a new upload, ask Zenodo to create a DOI, and save the draft.
+    b. Look at the url in your browser while on your draft deposition
+    c. Save the numeric part of the URL 
+    d. For example in https://zenodo.org/uploads/10014561 the deposition_id is **10014561**
+4. **PERSONAL_ACCESS_TOKEN** is what you need next: 
+    a. Click on your name in the top right
+    b. Click on **Applications**
+    c. Click on **new token** and give it a name e.g. **my_name_zenodo_pat**
+    d. Copy and Save the PAT in a safe place. You can only view it once during creation.
+    e. It will be something like: **9cg22jj3nHSzdglTIOat6ABlyeYvnw07g1kv8tgFx7E2nbiTimf8Wur1kfFI**
+5. **BUCKET_URL**: Next you need to get the bucket ID for your deposition using the zenodo API
+    a. On your HPC console (PuTTY) Use the following commands:
+    ```
+    cd <path/to/my_files
+    
+    curl -H "Accept: application/json" -H "Authorization: Bearer <PERSONAL_ACCESS_TOKEN>" "https://www.zenodo.org/api/deposit/depositions/<DEPOSITION_ID>" > find_bucket.json
+    
+    # Example: curl -H "Accept: application/json" -H "Authorization: Bearer 9cg22jj3nHSzdglTIOat6ABlyeYvnw07g1kv8tgFx7E2nbiTimf8Wur1kfFI" "https://www.zenodo.org/api/deposit/depositions/10014561" > find_bucket.json
+    ```
+    c. This will save the output to **find_bucket.json**. Open the file with an editor and search for "bucket".
+    d. Save the **BUCKET_URL** (e.g. https://zenodo.org/api/files/71e6b638-80a3-4f35-9c54-447490b4cb72)
+6. **SEND TO ZENODO**: Now you are ready to send your file up to Zenodo: 
+    a. On your HPC console (PuTTY) Use the following commands:
+    ```
+    cd <path/to/my_files>
+    
+    curl -v -# -X PUT -H "Accept: application/json" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer <PERSONAL_ACCESS_TOKEN>" -T <path/to/my_zipped_file.zip> <BUCKET_URL>/<NAME_OF_ZIP_FILE>"
+    
+    # Example: curl -v -# -X PUT -H "Accept: application/json" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer 5cg33jj3nHSadglTIOst7ABlyeYvnw07g1kv8tgFx7E2nbiTimf8Wur1kfFI" -T /rcfs/projects/gcims/projects/seasia/gcamv6p0_seasia.zip "https://zenodo.org/api/files/71e6b638-80a3-4f35-9c54-332490b4cb71/gcamv6p0_seasia.zip"
+    ```
+7. **BASH Script**: You can also do this by submitting a job as follows:
+    a. Create **send_to_zenodo.sh** script (Replace PROJECT_ACCOUNT_NAME, <path/to/my_zipped_file.zip> , <BUCKET_URL>, <NAME_OF_ZIP_FILE>)
+    ```
+    #!/bin/sh
+    #SBATCH --partition=slurm,short,shared
+    #SBATCH --nodes=1
+    #SBATCH --time=300
+    #SBATCH --job-name=lhs
+    #SBATCH -A <PROJECT_ACCOUNT_NAME>
+    
+    # README -----------------------------------------------------------------------
+    #
+    # This script will send a zipped file up to Zenodo
+    # sbatch send_to_zenodo.sh
+    #
+    # ------------------------------------------------------------------------------
+
+    echo "sending to Zenodo"
+
+    date
+    
+    cd <PATH/TO/MY_FILES>
+    
+    curl -v -# -X PUT -H "Accept: application/json" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer <PERSONAL_ACCESS_TOKEN>" -T <path/to/my_zipped_file.zip> <BUCKET_URL>/<NAME_OF_ZIP_FILE>"
+    
+    date
+
+    echo 'completed'
+    ```
+    b. Then submit the job: `sbatch send_to_zenodo.sh`
+    c. Check your job status: `squeue -u <USERNAME>`
+    d. Check your SLURM file to see if the file was succesfully submitted.
+</p></span>
+</div>
+
