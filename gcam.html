@@ -13,7 +13,7 @@
 
 <title>gcam_training</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.22/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -29,7 +29,7 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
@@ -38,8 +38,8 @@
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -60,6 +60,7 @@ if (window.hljs) {
   }
 }
 </script>
+
 
 
 
@@ -89,6 +90,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -146,11 +150,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -179,8 +187,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -188,16 +196,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -317,7 +318,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -366,7 +367,7 @@ div.tocify {
 <div id="header">
 
 <div class="btn-group pull-right float-right">
-<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
 <ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
 <li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
 <li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
@@ -384,7 +385,7 @@ div.tocify {
 <p><img src="images/logo_pnnl_white.png" style="float:right;height:40px;"></p>
 </div>
 <!-- Allow href to tabsets -->
-<script type="text/javascript">
+<script>
 window.onload = function() {
   document.querySelector('a[href="' + window.location.href.match("#.*$") + '"]').click();
 }
@@ -409,7 +410,7 @@ window.onhashchange = goToTab;
 <style type="text/css">
 script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
 </style>
-<script type="text/javascript">
+<script>
  $(document).ready(function() {
     $('body').prepend('<div class=\"zoomDiv\"><img src=\"\" class=\"zoomImg\"></div>');
     // onClick function for all plots (img's)
@@ -1540,6 +1541,124 @@ git add files_changed
 git commit -m &quot;commit message&quot;
 git push https://github.com/USERNAME/gcam_v5p4_projectx.git local_branch_name:new_branch_name</code></pre>
 </p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<!-------------------------->
+</div>
+</div>
+<div id="send-to-zenodo" class="section level1">
+<h1>Send to Zenodo</h1>
+<!-------------------------->
+<p align="center">
+<img src="images/divider.png">
+</p>
+<div id="large-files-50gb-from-hpc-to-zenodo" class="section level2">
+<h2>Large files (&lt;50GB) from HPC to Zenodo</h2>
+<p>This section discusses how to send large files (upto 50GB) directly
+to zenodo from an HPC. For example a compiled zipped version of GCAM.
+Using a traditional method of uploading directly from the broswer often
+doesn’t work and keeps crashing during the upload. Using the method
+below you can submit the upload as a job.</p>
+<div class="warning"
+style="background-color:#fffae0; border-left: solid #1f1f1f 4px; border-radius: 4px; padding:0.7em;">
+<span>
+<p style="margin-top:1em; text-align:center">
+<b>HPC to Zenodo</b>
+</p>
+<p style="margin-left:1em;">
+<ol style="list-style-type: decimal">
+<li>Prepare your zipped file and save it on the HPC:
+<strong>&lt;path/to/my_zipped_file.zip&gt;</strong></li>
+<li>Sign-in to your Zenodo account</li>
+<li><strong>DEPOSITION_ID</strong> is the first thing you need:
+<ol style="list-style-type: lower-alpha">
+<li>Create a new upload, ask Zenodo to create a DOI, and save the
+draft.</li>
+<li>Look at the url in your browser while on your draft deposition</li>
+<li>Save the numeric part of the URL</li>
+<li>For example in <a href="https://zenodo.org/uploads/10014561"
+class="uri">https://zenodo.org/uploads/10014561</a> the deposition_id is
+<strong>10014561</strong></li>
+</ol></li>
+<li><strong>PERSONAL_ACCESS_TOKEN</strong> is what you need next:
+<ol style="list-style-type: lower-alpha">
+<li>Click on your name in the top right</li>
+<li>Click on <strong>Applications</strong></li>
+<li>Click on <strong>new token</strong> and give it a name
+e.g. <strong>my_name_zenodo_pat</strong></li>
+<li>Copy and Save the PAT in a safe place. You can only view it once
+during creation.</li>
+<li>It will be something like:
+<strong>9cg22jj3nHSzdglTIOat6ABlyeYvnw07g1kv8tgFx7E2nbiTimf8Wur1kfFI</strong></li>
+</ol></li>
+<li><strong>BUCKET_URL</strong>: Next you need to get the bucket ID for
+your deposition using the zenodo API
+<ol style="list-style-type: lower-alpha">
+<li>On your HPC console (PuTTY) Use the following commands:</li>
+</ol>
+<pre><code>cd &lt;path/to/my_files
+
+curl -H &quot;Accept: application/json&quot; -H &quot;Authorization: Bearer &lt;PERSONAL_ACCESS_TOKEN&gt;&quot; &quot;https://www.zenodo.org/api/deposit/depositions/&lt;DEPOSITION_ID&gt;&quot; &gt; find_bucket.json
+
+# Example: curl -H &quot;Accept: application/json&quot; -H &quot;Authorization: Bearer 9cg22jj3nHSzdglTIOat6ABlyeYvnw07g1kv8tgFx7E2nbiTimf8Wur1kfFI&quot; &quot;https://www.zenodo.org/api/deposit/depositions/10014561&quot; &gt; find_bucket.json</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>This will save the output to <strong>find_bucket.json</strong>. Open
+the file with an editor and search for “bucket”.</li>
+<li>Save the <strong>BUCKET_URL</strong> (e.g. <a
+href="https://zenodo.org/api/files/71e6b638-80a3-4f35-9c54-447490b4cb72"
+class="uri">https://zenodo.org/api/files/71e6b638-80a3-4f35-9c54-447490b4cb72</a>)</li>
+</ol></li>
+<li><strong>SEND TO ZENODO</strong>: Now you are ready to send your file
+up to Zenodo:
+<ol style="list-style-type: lower-alpha">
+<li>On your HPC console (PuTTY) Use the following commands:</li>
+</ol>
+<pre><code>cd &lt;path/to/my_files&gt;
+
+curl -v -# -X PUT -H &quot;Accept: application/json&quot; -H &quot;Content-Type: application/octet-stream&quot; -H &quot;Authorization: Bearer &lt;PERSONAL_ACCESS_TOKEN&gt;&quot; -T &lt;path/to/my_zipped_file.zip&gt; &lt;BUCKET_URL&gt;/&lt;NAME_OF_ZIP_FILE&gt;&quot;
+
+# Example: curl -v -# -X PUT -H &quot;Accept: application/json&quot; -H &quot;Content-Type: application/octet-stream&quot; -H &quot;Authorization: Bearer 5cg33jj3nHSadglTIOst7ABlyeYvnw07g1kv8tgFx7E2nbiTimf8Wur1kfFI&quot; -T /rcfs/projects/gcims/projects/seasia/gcamv6p0_seasia.zip &quot;https://zenodo.org/api/files/71e6b638-80a3-4f35-9c54-332490b4cb71/gcamv6p0_seasia.zip&quot;</code></pre></li>
+<li><strong>BASH Script</strong>: You can also do this by submitting a
+job as follows:
+<ol style="list-style-type: lower-alpha">
+<li>Create <strong>send_to_zenodo.sh</strong> script (Replace
+PROJECT_ACCOUNT_NAME, &lt;path/to/my_zipped_file.zip&gt; , <BUCKET_URL>,
+<NAME_OF_ZIP_FILE>)</li>
+</ol>
+<pre><code>#!/bin/sh
+#SBATCH --partition=slurm,short,shared
+#SBATCH --nodes=1
+#SBATCH --time=300
+#SBATCH --job-name=lhs
+#SBATCH -A &lt;PROJECT_ACCOUNT_NAME&gt;
+
+# README -----------------------------------------------------------------------
+#
+# This script will send a zipped file up to Zenodo
+# sbatch send_to_zenodo.sh
+#
+# ------------------------------------------------------------------------------
+
+echo &quot;sending to Zenodo&quot;
+
+date
+
+cd &lt;PATH/TO/MY_FILES&gt;
+
+curl -v -# -X PUT -H &quot;Accept: application/json&quot; -H &quot;Content-Type: application/octet-stream&quot; -H &quot;Authorization: Bearer &lt;PERSONAL_ACCESS_TOKEN&gt;&quot; -T &lt;path/to/my_zipped_file.zip&gt; &lt;BUCKET_URL&gt;/&lt;NAME_OF_ZIP_FILE&gt;&quot;
+
+date
+
+echo &#39;completed&#39;</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Then submit the job: <code>sbatch send_to_zenodo.sh</code></li>
+<li>Check your job status: <code>squeue -u &lt;USERNAME&gt;</code></li>
+<li>Check your SLURM file to see if the file was succesfully
+submitted.</li>
+</ol></li>
+</ol>
 </p>
 <p></span></p>
 </div>
