@@ -847,7 +847,11 @@ This section discussed how to push a development branch of GCAM from stash onto 
 2. Give it a relevant name such as `gcam_v5p4_projectx`
 3. Copy the clone address of the new repo e.g. https://github.com/USERNAME/gcam_v5p4_projectx.git
 4. Push your local stash branch changes up to this branch: 
-<p>`git push https://github.com/USERNAME/gcam_v5p4_projectx.git local_branch_name:new_branch_name`</p>
+<p>
+```
+git push https://github.com/USERNAME/gcam_v5p4_projectx.git local_branch_name:new_branch_name
+```
+</p>
 5. Continue to work stash branch as usual and also push up latest changes to github as above.
 <p>
 ```
@@ -868,7 +872,7 @@ git push https://github.com/USERNAME/gcam_v5p4_projectx.git local_branch_name:ne
 <!-------------------------->
 <p align="center"> <img src="images/divider.png"></p>
 
-## Large files (<50GB) from HPC to Zenodo
+## Large files from HPC to Zenodo
 
 This section discusses how to send large files (upto 50GB) directly to zenodo from an HPC. For example a compiled zipped version of GCAM. Using a traditional method of uploading directly from the broswer often doesn't work and keeps crashing during the upload. Using the method below you can submit the upload as a job.
 
@@ -911,7 +915,7 @@ This section discusses how to send large files (upto 50GB) directly to zenodo fr
     # Example: curl -v -# -X PUT -H "Accept: application/json" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer 5cg33jj3nHSadglTIOst7ABlyeYvnw07g1kv8tgFx7E2nbiTimf8Wur1kfFI" -T /rcfs/projects/gcims/projects/seasia/gcamv6p0_seasia.zip "https://zenodo.org/api/files/71e6b638-80a3-4f35-9c54-332490b4cb71/gcamv6p0_seasia.zip"
     ```
 7. **BASH Script**: You can also do this by submitting a job as follows:
-    a. Create **send_to_zenodo.sh** script (Replace PROJECT_ACCOUNT_NAME, <path/to/my_zipped_file.zip> , <BUCKET_URL>, <NAME_OF_ZIP_FILE>)
+    a. Create **send_to_zenodo.sh** script (Replace PROJECT_ACCOUNT_NAME, `<path/to/my_zipped_file.zip>` ,`<BUCKET_URL>`, `<NAME_OF_ZIP_FILE>`)
     ```
     #!/bin/sh
     #SBATCH --partition=slurm,short,shared

@@ -1529,9 +1529,11 @@ class="uri">https://github.com/new</a></li>
 href="https://github.com/USERNAME/gcam_v5p4_projectx.git"
 class="uri">https://github.com/USERNAME/gcam_v5p4_projectx.git</a></li>
 <li>Push your local stash branch changes up to this branch:
-<p>
-<code>git push https://github.com/USERNAME/gcam_v5p4_projectx.git local_branch_name:new_branch_name</code>
-</p></li>
+<p></li>
+</ol>
+<pre><code>git push https://github.com/USERNAME/gcam_v5p4_projectx.git local_branch_name:new_branch_name</code></pre>
+</p>
+<ol start="5" style="list-style-type: decimal">
 <li>Continue to work stash branch as usual and also push up latest
 changes to github as above.
 <p></li>
@@ -1554,8 +1556,8 @@ git push https://github.com/USERNAME/gcam_v5p4_projectx.git local_branch_name:ne
 <p align="center">
 <img src="images/divider.png">
 </p>
-<div id="large-files-50gb-from-hpc-to-zenodo" class="section level2">
-<h2>Large files (&lt;50GB) from HPC to Zenodo</h2>
+<div id="large-files-from-hpc-to-zenodo" class="section level2">
+<h2>Large files from HPC to Zenodo</h2>
 <p>This section discusses how to send large files (upto 50GB) directly
 to zenodo from an HPC. For example a compiled zipped version of GCAM.
 Using a traditional method of uploading directly from the broswer often
@@ -1624,8 +1626,9 @@ curl -v -# -X PUT -H &quot;Accept: application/json&quot; -H &quot;Content-Type:
 job as follows:
 <ol style="list-style-type: lower-alpha">
 <li>Create <strong>send_to_zenodo.sh</strong> script (Replace
-PROJECT_ACCOUNT_NAME, &lt;path/to/my_zipped_file.zip&gt; , <BUCKET_URL>,
-<NAME_OF_ZIP_FILE>)</li>
+PROJECT_ACCOUNT_NAME, <code>&lt;path/to/my_zipped_file.zip&gt;</code>
+,<code>&lt;BUCKET_URL&gt;</code>,
+<code>&lt;NAME_OF_ZIP_FILE&gt;</code>)</li>
 </ol>
 <pre><code>#!/bin/sh
 #SBATCH --partition=slurm,short,shared
