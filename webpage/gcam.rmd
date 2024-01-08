@@ -28,7 +28,7 @@ output:
 library(kableExtra); library(dplyr)
 
 data.frame(
-  Description = c("Official Documentation",
+  Description = c("Official Documentation*",
                   "FAQs, issues and discussions"),
   Link = c("http://jgcri.github.io/gcam-doc/index.html",
            "https://github.com/JGCRI/gcam-core/discussions")) %>%
@@ -36,7 +36,7 @@ data.frame(
   kable_styling(bootstrap_options = c("bordered","striped", "hover", "condensed", "responsive")) %>%
   row_spec(0, background = "#2A2A2A", color = "white")
 ```
-
+\* Main page is updated with every GCAM public release, with previous versions archived.
 <br>
 
 <!-------------------------->
