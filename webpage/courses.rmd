@@ -135,32 +135,32 @@ At the 2024 GCAM Annual Meeting, a series of training sessions were held over Zo
     <tr>
       <td style="padding: 8px; text-align: left;">Xanthos</td>
       <td style="padding: 8px; text-align: left;">Interactive tutorial for Xanthos, a open-source global hydrologic model.</td>
-      <td style="padding: 8px; text-align: center; vertical-align: middle;"><a href="xanthos.msdlive.org">Jupyter Notebook</a></td>
+      <td style="padding: 8px; text-align: center; vertical-align: middle;"><a href="https://xanthos.msdlive.org">Jupyter Notebook</a></td>
     </tr>
     <tr>
       <td style="padding: 8px; text-align: left;">Hector</td>
       <td style="padding: 8px; text-align: left;">Interactive tutorial for Hector, a simple climate model</td>
-      <td style="padding: 8px; text-align: center; vertical-align: middle;"><a href="hector.msdlive.org">Jupyter Notebook</a></td>
+      <td style="padding: 8px; text-align: center; vertical-align: middle;"><a href="https://hector.msdlive.org">Jupyter Notebook</a></td>
     </tr>
       <tr>
       <td style="padding: 8px; text-align: left;">Matilda</td>
       <td style="padding: 8px; text-align: left;">Interactive tutorial for Matilda, a probabilistic framework for the Hector simple climate model</td>
-      <td style="padding: 8px; text-align: center; vertical-align: middle;"><a href="matilda.msdlive.org">Jupyter Notebook</a></td>
+      <td style="padding: 8px; text-align: center; vertical-align: middle;"><a href="https://matilda.msdlive.org">Jupyter Notebook</a></td>
     </tr>
       <tr>
       <td style="padding: 8px; text-align: left;">Demeter</td>
       <td style="padding: 8px; text-align: left;">Interactive tutorial for Demeter, a tool for land use and land cover change disaggregation</td>
-      <td style="padding: 8px; text-align: center; vertical-align: middle;"><a href="demeter.msdlive.org">Jupyter Notebook</a></td>
+      <td style="padding: 8px; text-align: center; vertical-align: middle;"><a href="https://demeter.msdlive.org">Jupyter Notebook</a></td>
     </tr>
       <tr>
       <td style="padding: 8px; text-align: left;">GCAM output tools</td>
       <td style="padding: 8px; text-align: left;">Interactive tutorial for several tools for interacting with GCAM outputs, including rgcam, rchart, and rmap</td>
-      <td style="padding: 8px; text-align: center; vertical-align: middle;"><a href="rgcam.msdlive.org">Jupyter Notebook</a></td>
+      <td style="padding: 8px; text-align: center; vertical-align: middle;"><a href="https://rgcam.msdlive.org">Jupyter Notebook</a></td>
     </tr>
       <tr>
       <td style="padding: 8px; text-align: left;">STITCHES</td>
       <td style="padding: 8px; text-align: left;">Interactive tutorial for STITCHES, a tool to amalgamate existing climate data to create monthly climate variable fields</td>
-      <td style="padding: 8px; text-align: center; vertical-align: middle;"><a href="stitches.msdlive.org">Jupyter Notebook</a></td>
+      <td style="padding: 8px; text-align: center; vertical-align: middle;"><a href="https://stitches.msdlive.org">Jupyter Notebook</a></td>
     </tr>
       <!--tr>
       <td style="padding: 8px; text-align: left;">gcambreakout</td>
