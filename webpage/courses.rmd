@@ -148,6 +148,11 @@ At the 2024 GCAM Annual Meeting, a series of training sessions were held over Zo
       <td style="padding: 8px; text-align: center; vertical-align: middle;"><a href="https://github.com/JGCRI/gcam_training/blob/main/presentations/gcam_annual_meeting_2024_trainings/GCIMS_Tools_Overview.pptx">Slides</a></td>
     </tr>
     <tr>
+      <td style="padding: 8px; text-align: left;">GCAM Scenarios</td>
+      <td style="padding: 8px; text-align: left;">Interactive tutorial for conducting scenario adjustments and user modifications in GCAM.</td>
+      <td style="padding: 8px; text-align: center; vertical-align: middle;"><a href="https://gcam.msdlive.org">Jupyter Notebook</a></td>
+    </tr>
+    <tr>
       <td style="padding: 8px; text-align: left;">Xanthos</td>
       <td style="padding: 8px; text-align: left;">Interactive tutorial for Xanthos, a open-source global hydrologic model.</td>
       <td style="padding: 8px; text-align: center; vertical-align: middle;"><a href="https://xanthos.msdlive.org">Jupyter Notebook</a></td>
